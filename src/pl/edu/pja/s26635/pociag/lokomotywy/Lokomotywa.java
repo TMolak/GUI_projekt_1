@@ -5,21 +5,35 @@ import pl.edu.pja.s26635.infrastuktura.Stacja;
 public class Lokomotywa {
 
     private static int idNum = 0;
+
+//    private int predkosc;
     private String nazwa;
     private Stacja stacjaMacierzysta;
     private Stacja stacjaZrodlowa;
     private Stacja stacjaDocelowa;
+    private int maxUciag;
 
-    public Lokomotywa(String nazwa, Stacja stacjaMacierzysta, Stacja stacjaZrodlowa, Stacja stacjaDocelowa) {
+    private int maxLiczWagonow;
+
+    private int maxLiczWagonowEl;
+
+    public Lokomotywa(String nazwa, Stacja stacjaMacierzysta, Stacja stacjaZrodlowa, Stacja stacjaDocelowa, int maxUciag, int maxLiczWagonow, int maxLiczWagonowEl) {
         this.nazwa = nazwa;
         this.stacjaMacierzysta = stacjaMacierzysta;
         this.stacjaZrodlowa = stacjaZrodlowa;
         this.stacjaDocelowa = stacjaDocelowa;
+        this.maxUciag = maxUciag;
+        this.maxLiczWagonow = maxLiczWagonow;
+        this.maxLiczWagonowEl = maxLiczWagonowEl;
         ++idNum;
     }
 
     public static int getIdNum() {
         return idNum;
+    }
+
+    public static void setIdNum(int idNum) {
+        Lokomotywa.idNum = idNum;
     }
 
     public String getNazwa() {
@@ -52,5 +66,30 @@ public class Lokomotywa {
 
     public void setStacjaDocelowa(Stacja stacjaDocelowa) {
         this.stacjaDocelowa = stacjaDocelowa;
+    }
+
+
+    public int getMaxUciag() {
+        return maxUciag;
+    }
+
+    public void setMaxUciag(int maxUciag) {
+        this.maxUciag = maxUciag;
+    }
+
+    public int getMaxLiczWagonow() {
+        return maxLiczWagonow;
+    }
+
+    public void setMaxLiczWagonow(int maxLiczWagonow) {
+        this.maxLiczWagonow = maxLiczWagonow;
+    }
+
+    public int getMaxLiczWagonowEl() {
+        return maxLiczWagonowEl;
+    }
+
+    public void setMaxLiczWagonowEl(int maxLiczWagonowEl) {
+        this.maxLiczWagonowEl = maxLiczWagonowEl;
     }
 }
