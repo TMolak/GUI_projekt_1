@@ -5,7 +5,6 @@ import pl.edu.pja.s26635.pociag.wagony.Wagon;
 public class WagonPocz extends Wagon {
 
     public static boolean polaczenieElektryczne = true;
-
     public int maxWagaPrzesylek;
     public boolean wifi;
 

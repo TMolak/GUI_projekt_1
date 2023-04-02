@@ -3,9 +3,7 @@ package pl.edu.pja.s26635.pociag.wagony.cywilne;
 import pl.edu.pja.s26635.pociag.wagony.Wagon;
 
 public class WagonRes extends Wagon {
-
     public static boolean polaczenieElektryczne = true;
-
     public boolean ofertaSniadaniowa;
     public boolean ofertaWege;
     public int iloscStolow;

@@ -1,12 +1,17 @@
 package pl.edu.pja.s26635.pociag.wagony;
 
-abstract class Wagon {
+public abstract class Wagon {
 
     public static int idNum = 0;
+
     public String nadawca;
+
     public int wagaNetto;
+
     public int wagaBrutto;
+
     public int liczbaMiejscSiedzacych;
+
     public int liczbaWszystkichMiejsc;
 
     public Wagon(String nadawca, int wagaNetto, int wagaBrutto, int liczbaMiejscSiedzacych, int liczbaWszystkichMiejsc) {

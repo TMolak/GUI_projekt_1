@@ -5,7 +5,6 @@ import pl.edu.pja.s26635.pociag.wagony.Wagon;
 public class WagonPas extends Wagon {
 
     public static boolean polaczenieElektryczne = true;
-
     public boolean toaleta;
     public int miejscaNaWalizki;
 
