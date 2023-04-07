@@ -4,8 +4,8 @@ import pl.edu.pja.s26635.pociag.wagony.Wagon;
 
 public class WagonTowPodst extends Wagon {
 
-    public static int maxLadownosc = 50000;
-    public String rodzajWagonu;
+    private static int maxLadownosc = 50000;
+    private String rodzajWagonu;
 
     public WagonTowPodst(String nadawca, int wagaNetto, int wagaBrutto, int liczbaMiejscSiedzacych, int liczbaWszystkichMiejsc) {
         super(nadawca, wagaNetto, wagaBrutto, liczbaMiejscSiedzacych, liczbaWszystkichMiejsc);

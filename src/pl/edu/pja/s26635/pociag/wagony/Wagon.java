@@ -23,6 +23,9 @@ public abstract class Wagon {
         ++idNum;
     }
 
+    public Wagon() {
+    }
+
     public static int getIdNum() {
         return idNum;
     }

@@ -4,9 +4,9 @@ import pl.edu.pja.s26635.pociag.wagony.Wagon;
 
 public class WagonPocz extends Wagon {
 
-    public static boolean polaczenieElektryczne = true;
-    public int maxWagaPrzesylek;
-    public boolean wifi;
+    private static boolean polaczenieElektryczne = true;
+    private int maxWagaPrzesylek;
+    private boolean wifi;
 
     public WagonPocz(String nadawca, int wagaNetto, int wagaBrutto, int liczbaMiejscSiedzacych, int liczbaWszystkichMiejsc) {
         super(nadawca, wagaNetto, wagaBrutto, liczbaMiejscSiedzacych, liczbaWszystkichMiejsc);

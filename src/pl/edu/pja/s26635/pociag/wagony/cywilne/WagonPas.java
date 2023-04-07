@@ -4,9 +4,9 @@ import pl.edu.pja.s26635.pociag.wagony.Wagon;
 
 public class WagonPas extends Wagon {
 
-    public static boolean polaczenieElektryczne = true;
-    public boolean toaleta;
-    public int miejscaNaWalizki;
+    private static boolean polaczenieElektryczne = true;
+    private boolean toaleta;
+    private int miejscaNaWalizki;
 
     public WagonPas(String nadawca, int wagaNetto, int wagaBrutto, int liczbaMiejscSiedzacych, int liczbaWszystkichMiejsc) {
         super(nadawca, wagaNetto, wagaBrutto, liczbaMiejscSiedzacych, liczbaWszystkichMiejsc);
@@ -16,5 +16,8 @@ public class WagonPas extends Wagon {
         super(nadawca, wagaNetto, wagaBrutto, liczbaMiejscSiedzacych, liczbaWszystkichMiejsc);
         this.toaleta = toaleta;
         this.miejscaNaWalizki = miejscaNaWalizki;
+
     }
+
+
 }
