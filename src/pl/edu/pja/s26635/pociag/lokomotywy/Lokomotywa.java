@@ -5,8 +5,7 @@ import pl.edu.pja.s26635.infrastuktura.Stacja;
 public class Lokomotywa {
 
     private static int idNum = 0;
-
-//    private int predkosc;
+    private double predkosc;
     private String nazwa;
     private Stacja stacjaMacierzysta;
     private Stacja stacjaZrodlowa;
@@ -17,6 +16,17 @@ public class Lokomotywa {
 
     private int maxLiczWagonowEl;
 
+    public Lokomotywa(String nazwa, Stacja stacjaMacierzysta, Stacja stacjaZrodlowa, Stacja stacjaDocelowa, int maxUciag, int maxLiczWagonow, int maxLiczWagonowEl, double predkosc) {
+        this.nazwa = nazwa;
+        this.stacjaMacierzysta = stacjaMacierzysta;
+        this.stacjaZrodlowa = stacjaZrodlowa;
+        this.stacjaDocelowa = stacjaDocelowa;
+        this.maxUciag = maxUciag;
+        this.maxLiczWagonow = maxLiczWagonow;
+        this.maxLiczWagonowEl = maxLiczWagonowEl;
+        this.predkosc = (predkosc * 100);
+        ++idNum;
+    }
     public Lokomotywa(String nazwa, Stacja stacjaMacierzysta, Stacja stacjaZrodlowa, Stacja stacjaDocelowa, int maxUciag, int maxLiczWagonow, int maxLiczWagonowEl) {
         this.nazwa = nazwa;
         this.stacjaMacierzysta = stacjaMacierzysta;
@@ -25,6 +35,7 @@ public class Lokomotywa {
         this.maxUciag = maxUciag;
         this.maxLiczWagonow = maxLiczWagonow;
         this.maxLiczWagonowEl = maxLiczWagonowEl;
+
         ++idNum;
     }
 
@@ -91,5 +102,27 @@ public class Lokomotywa {
 
     public void setMaxLiczWagonowEl(int maxLiczWagonowEl) {
         this.maxLiczWagonowEl = maxLiczWagonowEl;
+    }
+
+    public double getPredkosc() {
+        return predkosc;
+    }
+
+    public void setPredkosc(double predkosc) {
+        this.predkosc = predkosc;
+    }
+
+    @Override
+    public String toString() {
+        return "Lokomotywa{" +
+                "predkosc=" + predkosc +
+                ", nazwa='" + nazwa + '\'' +
+                ", stacjaMacierzysta=" + stacjaMacierzysta +
+                ", stacjaZrodlowa=" + stacjaZrodlowa +
+                ", stacjaDocelowa=" + stacjaDocelowa +
+                ", maxUciag=" + maxUciag +
+                ", maxLiczWagonow=" + maxLiczWagonow +
+                ", maxLiczWagonowEl=" + maxLiczWagonowEl +
+                '}';
     }
 }

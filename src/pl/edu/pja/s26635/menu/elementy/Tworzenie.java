@@ -1,10 +1,13 @@
 package pl.edu.pja.s26635.menu.elementy;
 
+import pl.edu.pja.s26635.infrastuktura.Stacja;
+import pl.edu.pja.s26635.pociag.lokomotywy.Lokomotywa;
+
 import java.util.Scanner;
 
 public class Tworzenie {
 
-    public static void tworzenieElementow(){
+    public static void tworzenieElementow() {
         System.out.println("Jaki element chcesz stworzyć?");
         System.out.println("1. Lokomotywa");
         System.out.println("2. Wagon");
@@ -13,7 +16,34 @@ public class Tworzenie {
         System.out.println("5. Połączenie między stacjami");
         Scanner scanner = new Scanner(System.in);
         String decyzja = scanner.nextLine();
-        if (decyzja.equals("2")){
+        if (decyzja.equals("1")) {
+            System.out.println("Podaj nazwę");
+            String nazwa = scanner.nextLine();
+            System.out.println("Podaj maksymalny uciąg");
+            int maxUciag = scanner.nextInt();
+            System.out.println("Podaj maksymalna liczbę wagnoów");
+            int maxLiczWagonow = scanner.nextInt();
+            System.out.println("Podaj maksymalna liczbę wagonów elektrycznych");
+            int maxLiczWagonowEl = scanner.nextInt();
+            System.out.println("Wybierz stację macierzysta (wpisujac numer na konsoli)");
+            int i = 1;
+            for (Stacja s : Stacja.listaStacji()) {
+                System.out.println(i + ". " + s.getNazwaStacji());
+                i++;
+            }
+            int stacjaMacierzysta = scanner.nextInt();
+            Stacja stacjaMac = Stacja.listaStacji().get(stacjaMacierzysta);
+            System.out.println("Wybierz stację poczatkowa (wpisujac numer na konsoli)");
+            int stacjaPoczatkowa = scanner.nextInt();
+            Stacja stacjaPocz = Stacja.listaStacji().get(stacjaPoczatkowa);
+            System.out.println("Wybierz stację docelowa (wpisujac numer na konsoli)");
+            int stacjaDocelowa = scanner.nextInt();
+            Stacja stacjaDoc = Stacja.listaStacji().get(stacjaDocelowa);
+
+            Lokomotywa lokomotywa = new Lokomotywa(nazwa, stacjaMac, stacjaPocz, stacjaDoc, maxUciag, maxLiczWagonow, maxLiczWagonowEl);
+            System.out.println(lokomotywa.toString());
+
+        } else if (decyzja.equals("2")) {
             System.out.println("Wybierz rodzaj wagonu:");
             System.out.println("1. wagon pasażerski, wymagający podłączenia do sieci elektrycznej lokomotywy\n" +
                     "2. wagon pocztowy, wymagający podłączenia do sieci elektrycznej lokomotywy\n" +
