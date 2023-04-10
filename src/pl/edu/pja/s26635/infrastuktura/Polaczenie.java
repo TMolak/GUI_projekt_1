@@ -5,12 +5,39 @@ import java.util.List;
 
 public class Polaczenie {
 
-    private List<Stacja> stacje;
+    private Stacja stacjaA;
 
-    private HashMap<List<Stacja>, Stacja> mapaStacji;
+    private Stacja stacjaB;
 
-    public Polaczenie(List<Stacja> stacje, HashMap<List<Stacja>, Stacja> mapaStacji) {
-        this.stacje = stacje;
-        this.mapaStacji = mapaStacji;
+    private double odleglosc;
+
+    public Polaczenie(Stacja stacjaA, Stacja stacjaB, double odleglosc) {
+        this.stacjaA = stacjaA;
+        this.stacjaB = stacjaB;
+        this.odleglosc = odleglosc;
+    }
+
+    public Stacja getStacjaA() {
+        return stacjaA;
+    }
+
+    public void setStacjaA(Stacja stacjaA) {
+        this.stacjaA = stacjaA;
+    }
+
+    public Stacja getStacjaB() {
+        return stacjaB;
+    }
+
+    public void setStacjaB(Stacja stacjaB) {
+        this.stacjaB = stacjaB;
+    }
+
+    public double getOdleglosc() {
+        return odleglosc;
+    }
+
+    public void setOdleglosc(double odleglosc) {
+        this.odleglosc = odleglosc;
     }
 }

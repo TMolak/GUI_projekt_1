@@ -10,8 +10,15 @@ public class Stacja {
 
     private String nazwaStacji;
 
+    private List<Polaczenie> polaczenia;
+
     public Stacja(String nazwaStacji) {
         this.nazwaStacji = nazwaStacji;
+        polaczenia = new ArrayList<Polaczenie>();
+    }
+
+    public void dodajPolaczenie(Polaczenie polaczenie){
+        polaczenia.add(polaczenie);
     }
 
     public String getNazwaStacji() {
