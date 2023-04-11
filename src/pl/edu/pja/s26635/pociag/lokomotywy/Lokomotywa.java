@@ -1,8 +1,13 @@
 package pl.edu.pja.s26635.pociag.lokomotywy;
 
 import pl.edu.pja.s26635.infrastuktura.Stacja;
+import pl.edu.pja.s26635.zapis.Zapis;
 
-public class Lokomotywa {
+import java.io.File;
+import java.io.IOException;
+import java.io.Serializable;
+
+public class Lokomotywa implements Serializable {
 
     private static int idNum = 0;
     private double predkosc;
@@ -27,6 +32,7 @@ public class Lokomotywa {
         this.predkosc = (predkosc * 100);
         ++idNum;
     }
+
     public Lokomotywa(String nazwa, Stacja stacjaMacierzysta, Stacja stacjaZrodlowa, Stacja stacjaDocelowa, int maxUciag, int maxLiczWagonow, int maxLiczWagonowEl) {
         this.nazwa = nazwa;
         this.stacjaMacierzysta = stacjaMacierzysta;
@@ -37,6 +43,11 @@ public class Lokomotywa {
         this.maxLiczWagonowEl = maxLiczWagonowEl;
 
         ++idNum;
+
+    }
+
+    public static void zapiszLokomotywe(Lokomotywa lokomotywa) throws IOException {
+        Zapis.zapiszDoPliku("lokomotywy.txt", lokomotywa.toString());
     }
 
     public static int getIdNum() {

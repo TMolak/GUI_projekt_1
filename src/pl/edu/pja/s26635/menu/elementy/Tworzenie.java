@@ -1,9 +1,12 @@
 package pl.edu.pja.s26635.menu.elementy;
 
+import pl.edu.pja.s26635.Main;
 import pl.edu.pja.s26635.infrastuktura.Stacja;
+import pl.edu.pja.s26635.pociag.lokomotywy.ListaLokomotyw;
 import pl.edu.pja.s26635.pociag.lokomotywy.Lokomotywa;
 
 import java.util.Scanner;
+
 
 public class Tworzenie {
 
@@ -17,6 +20,8 @@ public class Tworzenie {
         Scanner scanner = new Scanner(System.in);
         String decyzja = scanner.nextLine();
         if (decyzja.equals("1")) {
+            ListaLokomotyw listaLokomotyw = ListaLokomotyw.getInstance();
+
             System.out.println("Podaj nazwę");
             String nazwa = scanner.nextLine();
             System.out.println("Podaj maksymalny uciąg");
@@ -26,22 +31,26 @@ public class Tworzenie {
             System.out.println("Podaj maksymalna liczbę wagonów elektrycznych");
             int maxLiczWagonowEl = scanner.nextInt();
             System.out.println("Wybierz stację macierzysta (wpisujac numer na konsoli)");
+            //wypisuje stacje z pliku tesktowego
             int i = 1;
             for (Stacja s : Stacja.listaStacji()) {
                 System.out.println(i + ". " + s.getNazwaStacji());
                 i++;
             }
-            int stacjaMacierzysta = scanner.nextInt();
+            int stacjaMacierzysta = scanner.nextInt()-1;
             Stacja stacjaMac = Stacja.listaStacji().get(stacjaMacierzysta);
             System.out.println("Wybierz stację poczatkowa (wpisujac numer na konsoli)");
-            int stacjaPoczatkowa = scanner.nextInt();
+            int stacjaPoczatkowa = scanner.nextInt()-1;
             Stacja stacjaPocz = Stacja.listaStacji().get(stacjaPoczatkowa);
             System.out.println("Wybierz stację docelowa (wpisujac numer na konsoli)");
-            int stacjaDocelowa = scanner.nextInt();
+            int stacjaDocelowa = scanner.nextInt()-1;
             Stacja stacjaDoc = Stacja.listaStacji().get(stacjaDocelowa);
 
             Lokomotywa lokomotywa = new Lokomotywa(nazwa, stacjaMac, stacjaPocz, stacjaDoc, maxUciag, maxLiczWagonow, maxLiczWagonowEl);
+            listaLokomotyw.dodajLokomotywe(lokomotywa);
+
             System.out.println(lokomotywa.toString());
+
 
         } else if (decyzja.equals("2")) {
             System.out.println("Wybierz rodzaj wagonu:");

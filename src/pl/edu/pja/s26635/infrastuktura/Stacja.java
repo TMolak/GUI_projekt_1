@@ -41,7 +41,7 @@ public class Stacja {
 //        return listaStacji;
 //    }
     public static List<Stacja> listaStacji() {
-    String fileName = "100miast.txt";
+    String fileName = "C:\\Users\\tomek\\IdeaProjects\\GUI_projekt_1\\src\\plikiTxt\\100miast.txt";
         List<Stacja> listaStacji = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {

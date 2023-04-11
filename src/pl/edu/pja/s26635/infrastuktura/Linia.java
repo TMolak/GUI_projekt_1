@@ -1,18 +1,25 @@
 package pl.edu.pja.s26635.infrastuktura;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Linia {
 
-    private Stacja stacjaPoczatkowa;
+    private String nazwaLini;
 
-    private Stacja stacjaKoncowa;
+    private Stacja koncowa;
 
-    private List<Stacja> stacjePosrednie;
+    private Stacja poczatkowa;
+    private List<Stacja> stacje;
 
-    public Linia(Stacja stacjaPoczatkowa, Stacja stacjaKoncowa) {
-        this.stacjaPoczatkowa = stacjaPoczatkowa;
-        this.stacjaKoncowa = stacjaKoncowa;
+    private List<Polaczenie> polaczenia;
+
+    private double dlugoscTrasy;
+    public Linia(String nazwaLini, Stacja poczatkowa, Stacja koncowa) {
+        this.nazwaLini = nazwaLini;
+        stacje = new ArrayList<Stacja>();
+        polaczenia = new ArrayList<Polaczenie>();
+
     }
 
     public void wyznaczanieTrasy() {
