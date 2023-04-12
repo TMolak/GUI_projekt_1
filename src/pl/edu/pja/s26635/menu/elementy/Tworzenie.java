@@ -2,6 +2,7 @@ package pl.edu.pja.s26635.menu.elementy;
 
 import pl.edu.pja.s26635.Main;
 import pl.edu.pja.s26635.infrastuktura.Stacja;
+import pl.edu.pja.s26635.infrastuktura.listy.ListaStacji;
 import pl.edu.pja.s26635.menu.start.Witaj;
 import pl.edu.pja.s26635.pociag.lokomotywy.ListaLokomotyw;
 import pl.edu.pja.s26635.pociag.lokomotywy.Lokomotywa;
@@ -33,19 +34,16 @@ public class Tworzenie {
             int maxLiczWagonowEl = scanner.nextInt();
             System.out.println("Wybierz stację macierzysta (wpisujac numer na konsoli)");
             //wypisuje stacje z pliku tesktowego
-            int i = 1;
-            for (Stacja s : Stacja.listaStacji()) {
-                System.out.println(i + ". " + s.getNazwaStacji());
-                i++;
-            }
+            ListaStacji listaStacji = ListaStacji.getInstance();
+            listaStacji.pokazStacje();
             int stacjaMacierzysta = scanner.nextInt()-1;
-            Stacja stacjaMac = Stacja.listaStacji().get(stacjaMacierzysta);
+            Stacja stacjaMac = listaStacji.getStacjaList().get(stacjaMacierzysta);
             System.out.println("Wybierz stację poczatkowa (wpisujac numer na konsoli)");
             int stacjaPoczatkowa = scanner.nextInt()-1;
-            Stacja stacjaPocz = Stacja.listaStacji().get(stacjaPoczatkowa);
+            Stacja stacjaPocz = listaStacji.getStacjaList().get(stacjaPoczatkowa);
             System.out.println("Wybierz stację docelowa (wpisujac numer na konsoli)");
             int stacjaDocelowa = scanner.nextInt()-1;
-            Stacja stacjaDoc = Stacja.listaStacji().get(stacjaDocelowa);
+            Stacja stacjaDoc = listaStacji.getStacjaList().get(stacjaDocelowa);
 
             Lokomotywa lokomotywa = new Lokomotywa(nazwa, stacjaMac, stacjaPocz, stacjaDoc, maxUciag, maxLiczWagonow, maxLiczWagonowEl);
             listaLokomotyw.dodajLokomotywe(lokomotywa);

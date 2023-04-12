@@ -5,7 +5,7 @@ import pl.edu.pja.s26635.menu.odczyt.Pokaz;
 
 import java.util.Scanner;
 
-import static pl.edu.pja.s26635.menu.elementy.Tworzenie.tworzenieElementow;
+
 
 public class Witaj {
 

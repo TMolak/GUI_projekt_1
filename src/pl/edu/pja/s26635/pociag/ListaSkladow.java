@@ -28,9 +28,6 @@ public class ListaSkladow {
         skladList.remove(sklad);
     }
 
-    public static ListaSkladow getInstace() {
-        return instace;
-    }
 
     public static void setInstace(ListaSkladow instace) {
         ListaSkladow.instace = instace;

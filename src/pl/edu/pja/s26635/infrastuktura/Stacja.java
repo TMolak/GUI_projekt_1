@@ -25,36 +25,8 @@ public class Stacja {
         return nazwaStacji;
     }
 
-//    public static List<Stacja> listaStacji(String fileName) {
-////    String fileName = "100miast.txt";
-//        List<Stacja> listaStacji = new ArrayList<>();
-//
-//        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
-//            String line;
-//            while ((line = br.readLine()) != null) {
-//                Stacja stacja = new Stacja(line);
-//                listaStacji.add(stacja);
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        return listaStacji;
-//    }
-    public static List<Stacja> listaStacji() {
-    String fileName = "C:\\Users\\tomek\\IdeaProjects\\GUI_projekt_1\\src\\plikiTxt\\100miast.txt";
-        List<Stacja> listaStacji = new ArrayList<>();
 
-        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                Stacja stacja = new Stacja(line);
-                listaStacji.add(stacja);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return listaStacji;
-    }
+
 
     public void setNazwaStacji(String nazwaStacji) {
         this.nazwaStacji = nazwaStacji;
