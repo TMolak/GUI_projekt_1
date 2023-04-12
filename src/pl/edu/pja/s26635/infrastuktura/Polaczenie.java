@@ -1,9 +1,9 @@
 package pl.edu.pja.s26635.infrastuktura;
 
-import java.util.HashMap;
-import java.util.List;
 
 public class Polaczenie {
+
+    private String nazwaPolaczenia;
 
     private Stacja stacjaA;
 
@@ -12,9 +12,18 @@ public class Polaczenie {
     private double odleglosc;
 
     public Polaczenie(Stacja stacjaA, Stacja stacjaB, double odleglosc) {
+        this.nazwaPolaczenia = stacjaA.getNazwaStacji() +" - "+ stacjaB.getNazwaStacji();
         this.stacjaA = stacjaA;
         this.stacjaB = stacjaB;
         this.odleglosc = odleglosc;
+    }
+
+    public String getNazwaPolaczenia() {
+        return nazwaPolaczenia;
+    }
+
+    public void setNazwaPolaczenia(String nazwaPolaczenia) {
+        this.nazwaPolaczenia = nazwaPolaczenia;
     }
 
     public Stacja getStacjaA() {
