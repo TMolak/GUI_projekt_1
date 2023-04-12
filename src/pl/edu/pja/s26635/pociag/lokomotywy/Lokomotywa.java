@@ -29,7 +29,7 @@ public class Lokomotywa implements Serializable {
         this.maxUciag = maxUciag;
         this.maxLiczWagonow = maxLiczWagonow;
         this.maxLiczWagonowEl = maxLiczWagonowEl;
-        this.predkosc = (predkosc * 100);
+        this.predkosc = predkosc;
         ++idNum;
     }
 
@@ -43,6 +43,13 @@ public class Lokomotywa implements Serializable {
         this.maxLiczWagonowEl = maxLiczWagonowEl;
 
         ++idNum;
+
+    }
+
+    public void jazda(){
+        //co sekunde z wykorzystaniem watku
+        this.predkosc = predkosc * 0.3;
+
 
     }
 
