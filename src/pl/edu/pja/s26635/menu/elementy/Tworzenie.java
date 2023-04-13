@@ -27,6 +27,7 @@ public class Tworzenie {
             case "1": TworzenieLokomotyw.tworzenieLokomotyw();
             case "2": TworzenieWagonow.tworzenieWagonow();
             case "3": TworzenieSkladu.tworzenieSkladu();
+            break;
             case "4":
             case "5":
             case "0": Witaj.start();
