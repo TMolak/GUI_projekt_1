@@ -28,6 +28,14 @@ public class ListaLokomotyw {
         lokomotywaList.remove(lokomotywa);
     }
 
+    public void pokazLokomotywy(){
+        int i = 1;
+        for (Lokomotywa l : lokomotywaList){
+            System.out.println(i + ". " + l.getNazwa());
+            i++;
+        }
+    }
+
     public static void setInstance(ListaLokomotyw instance) {
         ListaLokomotyw.instance = instance;
     }

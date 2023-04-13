@@ -29,6 +29,14 @@ public class ListaWagonow {
         wagonList.remove(wagon);
     }
 
+    public void pokazWagony(){
+        int i = 1;
+        for (Wagon w : wagonList) {
+            System.out.println(i + ". "+ w.toString());
+            i++;
+        }
+    }
+
     public static void setInstance(ListaWagonow instance) {
         ListaWagonow.instance = instance;
     }

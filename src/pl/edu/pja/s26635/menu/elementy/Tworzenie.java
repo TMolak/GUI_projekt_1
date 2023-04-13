@@ -24,38 +24,9 @@ public class Tworzenie {
         Scanner scanner = new Scanner(System.in);
         String decyzja = scanner.nextLine();
         switch (decyzja){
-            case "1":
-                ListaLokomotyw listaLokomotyw = ListaLokomotyw.getInstance();
-
-                System.out.println("Podaj nazwę");
-                String nazwa = scanner.nextLine();
-                System.out.println("Podaj maksymalny uciąg");
-                int maxUciag = scanner.nextInt();
-                System.out.println("Podaj maksymalna liczbę wagnoów");
-                int maxLiczWagonow = scanner.nextInt();
-                System.out.println("Podaj maksymalna liczbę wagonów elektrycznych");
-                int maxLiczWagonowEl = scanner.nextInt();
-                System.out.println("Wybierz stację macierzysta (wpisujac numer na konsoli)");
-                ListaStacji listaStacji = ListaStacji.getInstance();
-                listaStacji.pokazStacje();
-                int stacjaMacierzysta = scanner.nextInt()-1;
-                Stacja stacjaMac = listaStacji.getStacjaList().get(stacjaMacierzysta);
-                System.out.println("Wybierz stację poczatkowa (wpisujac numer na konsoli)");
-                int stacjaPoczatkowa = scanner.nextInt()-1;
-                Stacja stacjaPocz = listaStacji.getStacjaList().get(stacjaPoczatkowa);
-                System.out.println("Wybierz stację docelowa (wpisujac numer na konsoli)");
-                int stacjaDocelowa = scanner.nextInt()-1;
-                Stacja stacjaDoc = listaStacji.getStacjaList().get(stacjaDocelowa);
-
-                Lokomotywa lokomotywa = new Lokomotywa(nazwa, stacjaMac, stacjaPocz, stacjaDoc, maxUciag, maxLiczWagonow, maxLiczWagonowEl);
-                listaLokomotyw.dodajLokomotywe(lokomotywa);
-
-                System.out.println("Powrót do start");
-                Witaj.start();
-
-
+            case "1": TworzenieLokomotyw.tworzenieLokomotyw();
             case "2": TworzenieWagonow.tworzenieWagonow();
-            case "3":
+            case "3": TworzenieSkladu.tworzenieSkladu();
             case "4":
             case "5":
             case "0": Witaj.start();

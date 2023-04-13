@@ -18,23 +18,6 @@ public class Sklad {
     }
 
 
-    public Sklad tworzenieSkladu(Lokomotywa lokomotywa, List<Wagon> wagony) {
-        Sklad sklad = new Sklad(lokomotywa, wagony);
-        int wagaWagonow = 0;
-        for (int i =0; i < wagony.size(); i++) {
-            wagaWagonow = wagony.get(i).wagaBrutto;
-        }
-        if (lokomotywa.getMaxUciag() >= wagaWagonow && lokomotywa.getMaxLiczWagonow() >= wagony.size()+1){
-            return sklad;
-        }else if (lokomotywa.getMaxUciag() < wagaWagonow){
-//            throw ZaDuzaWagaWagonow;
-        }else if(lokomotywa.getMaxLiczWagonow() < wagony.size()+1){
-//            throw ZaDuzoWagonow;
-        }
-        return null;
-    }
-
-
     public Lokomotywa getLokomotywa() {
         return lokomotywa;
     }

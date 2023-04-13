@@ -73,4 +73,15 @@ public abstract class Wagon {
     public void setLiczbaWszystkichMiejsc(int liczbaWszystkichMiejsc) {
         this.liczbaWszystkichMiejsc = liczbaWszystkichMiejsc;
     }
+
+    @Override
+    public String toString() {
+        return "Wagon{" +
+                "nadawca='" + nadawca + '\'' +
+                ", wagaNetto=" + wagaNetto +
+                ", wagaBrutto=" + wagaBrutto +
+                ", liczbaMiejscSiedzacych=" + liczbaMiejscSiedzacych +
+                ", liczbaWszystkichMiejsc=" + liczbaWszystkichMiejsc +
+                '}';
+    }
 }
