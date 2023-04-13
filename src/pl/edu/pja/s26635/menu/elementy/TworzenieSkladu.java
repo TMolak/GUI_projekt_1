@@ -21,34 +21,36 @@ public class TworzenieSkladu {
         ListaLokomotyw listaLokomotyw = ListaLokomotyw.getInstance();
         listaLokomotyw.pokazLokomotywy();
         int wybranaLokomotywa = scanner.nextInt();
-        Lokomotywa lokomotywa = listaLokomotyw.getLokomotywaList().get(wybranaLokomotywa-1);
+        Lokomotywa lokomotywa = listaLokomotyw.getLokomotywaList().get(wybranaLokomotywa - 1);
         System.out.println("Wybrałeś lokomotywę " + lokomotywa.getNazwa());
 
-        System.out.println("Wybierz Wagony");
-        ListaWagonow listaWagonow = ListaWagonow.getInstance();
-        listaWagonow.pokazWagony();
-        do {
-            int wybranyWagon = scanner.nextInt();
-            Wagon wagon = listaWagonow.getWagonList().get(wybranyWagon-1);
-            listaWybranychWagonow.add(wagon);
-            System.out.println("Chcesz wybrac wiecej wagonow?");
 
-        } while (scanner.nextLine().equals("Tak"));
-        try {
-            if (masaWagonow(listaWybranychWagonow) > lokomotywa.getMaxUciag()) {
-                throw new ZaDuzaWagaWagonow();
-            } else if (listaWybranychWagonow.size() + 1 > lokomotywa.getMaxLiczWagonow()) {
-                throw new ZaDuzoWagonow();
-            } else {
-                Sklad sklad = new Sklad(lokomotywa, listaWybranychWagonow);
-                ListaSkladow listaSkladow = ListaSkladow.getInstance();
-                listaSkladow.dodajSklad(sklad);
+        boolean decyzja = false;
+        do {
+            System.out.println("Wybierz Wagony");
+            ListaWagonow listaWagonow = ListaWagonow.getInstance();
+            listaWagonow.pokazWagony();
+            int wybranyWagon = scanner.nextInt();
+            Wagon wagon = listaWagonow.getWagonList().get(wybranyWagon - 1);
+            listaWybranychWagonow.add(wagon);
+            try {
+                if (masaWagonow(listaWybranychWagonow) > lokomotywa.getMaxUciag()) {
+                    throw new ZaDuzaWagaWagonow();
+                } else if (listaWybranychWagonow.size() + 1 > lokomotywa.getMaxLiczWagonow()) {
+                    throw new ZaDuzoWagonow();
+                }
+            } catch (ZaDuzaWagaWagonow wyjatek1) {
+                wyjatek1.getMessage();
+            } catch (ZaDuzoWagonow wyjatek2) {
+                wyjatek2.getMessage();
             }
-        } catch (ZaDuzaWagaWagonow wyjatek1) {
-            System.out.println(wyjatek1);
-        } catch (ZaDuzoWagonow wyjatek2) {
-            System.out.println(wyjatek2.getMessage());
-        }
+            System.out.println("Chcesz wybrac wiecej wagonow?");
+            decyzja = scanner.nextBoolean();
+        } while (decyzja);
+
+        Sklad sklad = new Sklad(lokomotywa, listaWybranychWagonow);
+        ListaSkladow listaSkladow = ListaSkladow.getInstance();
+        listaSkladow.dodajSklad(sklad);
     }
 
     public static int masaWagonow(List<Wagon> listaWagonow) {

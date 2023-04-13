@@ -23,10 +23,15 @@ public static void start(){
     String decyzja = scanner.nextLine();
     switch (decyzja){
         case "1": Tworzenie.tworzenieElementow();
+            break;
         case "2": Edycja.edytowanieElementu();
+            break;
         case "3": Usuwanie.usuwanieElementu();
+            break;
         case "4": Pokaz.pokazElementy();
+            break;
         case "0": System.exit(0);
+            break;
     }
 }
 
