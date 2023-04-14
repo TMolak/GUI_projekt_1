@@ -1,15 +1,8 @@
 package pl.edu.pja.s26635.menu.elementy;
 
-import pl.edu.pja.s26635.Main;
-import pl.edu.pja.s26635.infrastuktura.Stacja;
-import pl.edu.pja.s26635.infrastuktura.listy.ListaStacji;
 import pl.edu.pja.s26635.menu.start.Witaj;
-import pl.edu.pja.s26635.pociag.lokomotywy.ListaLokomotyw;
-import pl.edu.pja.s26635.pociag.lokomotywy.Lokomotywa;
-import pl.edu.pja.s26635.pociag.wagony.cywilne.WagonPas;
 
 import java.util.Scanner;
-
 
 public class Tworzenie {
 
@@ -23,14 +16,23 @@ public class Tworzenie {
         System.out.println("0. Powrót");
         Scanner scanner = new Scanner(System.in);
         String decyzja = scanner.nextLine();
-        switch (decyzja){
-            case "1": TworzenieLokomotyw.tworzenieLokomotyw();
-            case "2": TworzenieWagonow.tworzenieWagonow();
-            case "3": TworzenieSkladu.tworzenieSkladu();
-            break;
+        switch (decyzja) {
+            case "1":
+                TworzenieLokomotyw.tworzenieLokomotyw();
+                break;
+            case "2":
+                TworzenieWagonow.tworzenieWagonow();
+                break;
+            case "3":
+                TworzenieSkladu.tworzenieSkladu();
+                break;
             case "4":
+                break;
             case "5":
-            case "0": Witaj.start();
+                break;
+            case "0":
+                Witaj.start();
+                break;
         }
     }
 }

@@ -1,17 +1,12 @@
 package pl.edu.pja.s26635;
 
-
-import pl.edu.pja.s26635.infrastuktura.Polaczenie;
 import pl.edu.pja.s26635.infrastuktura.Stacja;
 import pl.edu.pja.s26635.infrastuktura.listy.ListaStacji;
-import pl.edu.pja.s26635.menu.start.Witaj;
 import pl.edu.pja.s26635.pociag.lokomotywy.ListaLokomotyw;
 import pl.edu.pja.s26635.pociag.lokomotywy.Lokomotywa;
 import pl.edu.pja.s26635.pociag.wagony.ListaWagonow;
-import pl.edu.pja.s26635.pociag.wagony.Wagon;
 import pl.edu.pja.s26635.pociag.wagony.cywilne.WagonPas;
 import pl.edu.pja.s26635.pociag.wagony.cywilne.WagonPocz;
-
 
 public class Main {
 
@@ -40,8 +35,33 @@ public class Main {
         ListaLokomotyw listaLokomotyw = ListaLokomotyw.getInstance();
         listaLokomotyw.dodajLokomotywe(lokomotywa);
 
-        Witaj.start();
+//        Witaj.start();
 
+        int rozmiarTablicy = listaStacji.getStacjaList().size();
+        int[][] tablica = new int[rozmiarTablicy][rozmiarTablicy];
+        for (int i = 0; i < tablica.length; i++) {
+            for (int j = 0; j < tablica.length; j++) {
+                if (i == j) {
+                    tablica[i][j] = 0;
+                } else {
+                    int procent = (int) (Math.random()*101);
+                    if (procent < 25){
+                        tablica[i][j] = 1;
+                        tablica[j][i] = 1;
+                    }else{
+                        tablica[i][j] = 0;
+                        tablica[j][i] = 0;
+                    }
+                }
+            }
+        }
+
+        for (int i = 0; i < tablica.length; i++) {
+            for (int j = 0; j < tablica.length; j++) {
+                System.out.print(tablica[i][j] + " ");
+            }
+            System.out.println();
+        }
 
     }
 

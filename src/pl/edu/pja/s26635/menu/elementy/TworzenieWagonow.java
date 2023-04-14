@@ -107,6 +107,7 @@ public class TworzenieWagonow {
                 break;
 
             case "0": Tworzenie.tworzenieElementow();
+                break;
         }
     }
 }

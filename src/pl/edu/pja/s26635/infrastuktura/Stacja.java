@@ -26,7 +26,13 @@ public class Stacja {
     }
 
 
+    public List<Polaczenie> getPolaczenia() {
+        return polaczenia;
+    }
 
+    public void setPolaczenia(List<Polaczenie> polaczenia) {
+        this.polaczenia = polaczenia;
+    }
 
     public void setNazwaStacji(String nazwaStacji) {
         this.nazwaStacji = nazwaStacji;

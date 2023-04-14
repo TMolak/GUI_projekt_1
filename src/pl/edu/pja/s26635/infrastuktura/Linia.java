@@ -1,28 +1,59 @@
 package pl.edu.pja.s26635.infrastuktura;
 
+import pl.edu.pja.s26635.infrastuktura.listy.ListaStacji;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Linia {
 
     private String nazwaLini;
 
+    private Stacja poczatkowa;
+
     private Stacja koncowa;
 
-    private Stacja poczatkowa;
-    private List<Stacja> stacje;
-
-    private List<Polaczenie> polaczenia;
+    private List<Stacja> trasaPrzejazdu;
 
     private double dlugoscTrasy;
-    public Linia(String nazwaLini, Stacja poczatkowa, Stacja koncowa) {
-        this.nazwaLini = nazwaLini;
-        stacje = new ArrayList<Stacja>();
-        polaczenia = new ArrayList<Polaczenie>();
+    public Linia(Stacja poczatkowa, Stacja koncowa) {
+        this.nazwaLini = poczatkowa + " - " + koncowa;
+//        trasaPrzejazdu =
+
+//        dlugoscTrasy =
 
     }
 
-    public void wyznaczanieTrasy() {
-        
+    public List<Stacja> wyznaczanieTrasy(Stacja A, Stacja B) {
+        Map<Stacja, Polaczenie> mapaStacji = new HashMap<>();
+        Stacja aktualnaStacja = A;
+        ListaStacji listaStacji = ListaStacji.getInstance();
+        List<Polaczenie> listaPolaczenA = A.getPolaczenia();
+        int rozmiarTablicy = listaStacji.getStacjaList().size();
+        int[][] tablica = new int[rozmiarTablicy][rozmiarTablicy];
+        for (int i = 0; i < tablica.length; i++) {
+            for (int j = 0; j < tablica.length; j++) {
+                if (i == j) {
+                    tablica[i][j] = 0;
+                } else {
+                    int procent = (int) (Math.random()*101);
+                    if (procent < 25){
+                        tablica[i][j] = 1;
+                        tablica[j][i] = 1;
+                    }else{
+                        tablica[i][j] = 0;
+                        tablica[j][i] = 0;
+                    }
+                }
+            }
+        }
+
+        if (aktualnaStacja == null){
+
+        }
+return null;
+
     }
 }
