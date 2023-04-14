@@ -18,6 +18,7 @@ public class Linia {
     private List<Stacja> trasaPrzejazdu;
 
     private double dlugoscTrasy;
+
     public Linia(Stacja poczatkowa, Stacja koncowa) {
         this.nazwaLini = poczatkowa + " - " + koncowa;
 //        trasaPrzejazdu =
@@ -27,18 +28,16 @@ public class Linia {
     }
 
     public List<Stacja> wyznaczanieTrasy(Stacja A, Stacja B) {
-        Map<Stacja, Polaczenie> mapaStacji = new HashMap<>();
-        Stacja aktualnaStacja = A;
+        Map<Stacja, List<Polaczenie>> mapaStacji = new HashMap<>();
 
-
-        if (aktualnaStacja == null){
-
+        if (A.getPolaczenia() == null || B.getPolaczenia() == null) {
+//            throw brakPolaczen;
         }
-return null;
+        return null;
 
     }
 
-    public void tworzeniePolaczenMiedzyStacjami(){
+    public void tworzeniePolaczenMiedzyStacjami() {
         ListaStacji listaStacji = ListaStacji.getInstance();
         List<Stacja> listaStajci2 = listaStacji.getStacjaList();
         int rozmiarTablicy = listaStacji.getStacjaList().size();
@@ -49,11 +48,11 @@ return null;
                 if (i == j) {
                     tablica[i][j] = 0;
                 } else {
-                    int procent = (int) (Math.random()*101);
-                    if (procent < 25){
+                    int procent = (int) (Math.random() * 101);
+                    if (procent < 25) {
                         tablica[i][j] = 1;
                         tablica[j][i] = 1;
-                    }else{
+                    } else {
                         tablica[i][j] = 0;
                         tablica[j][i] = 0;
                     }
@@ -61,15 +60,15 @@ return null;
             }
         }
 
-            for (int i = 0; i < tablica.length; i++) {
-                for (int j = 0; j < tablica.length; j++) {
-                    if (tablica[i][j] == 1){
-                        double odleglosc = (Math.random()*1000);
-                        listaStajci2.get(i).dodajPolaczenie(new Polaczenie(listaStajci2.get(i), listaStajci2.get(j), odleglosc));
-                    }
+        for (int i = 0; i < tablica.length; i++) {
+            for (int j = 0; j < tablica.length; j++) {
+                if (tablica[i][j] == 1) {
+                    double odleglosc = (Math.random() * 1000);
+                    listaStajci2.get(i).dodajPolaczenie(new Polaczenie(listaStajci2.get(i), listaStajci2.get(j), odleglosc));
                 }
-
             }
+
+        }
 
     }
 }

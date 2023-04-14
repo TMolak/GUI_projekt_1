@@ -17,7 +17,7 @@ public class Main {
 
         ListaStacji listaStacji = ListaStacji.getInstance();
         //wczytanie stacji z pliku
-        listaStacji.listaStacjizPliku("100miast.txt");
+        listaStacji.listaStacjizPliku("test.txt");
 
         WagonPas wagonPas = new WagonPas("pp", 100, 150, 200, 250, true, 30);
         WagonPas wagonPas2 = new WagonPas("pp2", 100, 2000, 200, 250, true, 30);
@@ -39,31 +39,6 @@ public class Main {
 
 //        Witaj.start();
 
-//        int rozmiarTablicy = listaStacji.getStacjaList().size();
-//        int[][] tablica = new int[rozmiarTablicy][rozmiarTablicy];
-//        for (int i = 0; i < tablica.length; i++) {
-//            for (int j = 0; j < tablica.length; j++) {
-//                if (i == j) {
-//                    tablica[i][j] = 0;
-//                } else {
-//                    int procent = (int) (Math.random()*101);
-//                    if (procent < 25){
-//                        tablica[i][j] = 1;
-//                        tablica[j][i] = 1;
-//                    }else{
-//                        tablica[i][j] = 0;
-//                        tablica[j][i] = 0;
-//                    }
-//                }
-//            }
-//        }
-//
-//        for (int i = 0; i < tablica.length; i++) {
-//            for (int j = 0; j < tablica.length; j++) {
-//                System.out.print(tablica[i][j] + " ");
-//            }
-//            System.out.println();
-//        }
         Linia linia = new Linia(null, null);
         linia.tworzeniePolaczenMiedzyStacjami();
 
