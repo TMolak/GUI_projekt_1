@@ -29,10 +29,21 @@ public class Linia {
     public List<Stacja> wyznaczanieTrasy(Stacja A, Stacja B) {
         Map<Stacja, Polaczenie> mapaStacji = new HashMap<>();
         Stacja aktualnaStacja = A;
+
+
+        if (aktualnaStacja == null){
+
+        }
+return null;
+
+    }
+
+    public void tworzeniePolaczenMiedzyStacjami(){
         ListaStacji listaStacji = ListaStacji.getInstance();
-        List<Polaczenie> listaPolaczenA = A.getPolaczenia();
+        List<Stacja> listaStajci2 = listaStacji.getStacjaList();
         int rozmiarTablicy = listaStacji.getStacjaList().size();
         int[][] tablica = new int[rozmiarTablicy][rozmiarTablicy];
+
         for (int i = 0; i < tablica.length; i++) {
             for (int j = 0; j < tablica.length; j++) {
                 if (i == j) {
@@ -50,10 +61,15 @@ public class Linia {
             }
         }
 
-        if (aktualnaStacja == null){
+            for (int i = 0; i < tablica.length; i++) {
+                for (int j = 0; j < tablica.length; j++) {
+                    if (tablica[i][j] == 1){
+                        double odleglosc = (Math.random()*1000);
+                        listaStajci2.get(i).dodajPolaczenie(new Polaczenie(listaStajci2.get(i), listaStajci2.get(j), odleglosc));
+                    }
+                }
 
-        }
-return null;
+            }
 
     }
 }

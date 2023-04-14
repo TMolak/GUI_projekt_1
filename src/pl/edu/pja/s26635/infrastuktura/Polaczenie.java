@@ -49,4 +49,14 @@ public class Polaczenie {
     public void setOdleglosc(double odleglosc) {
         this.odleglosc = odleglosc;
     }
+
+    @Override
+    public String toString() {
+        return "Polaczenie{" +
+                "nazwaPolaczenia='" + nazwaPolaczenia + '\'' +
+                ", stacjaA=" + stacjaA +
+                ", stacjaB=" + stacjaB +
+                ", odleglosc=" + odleglosc +
+                '}';
+    }
 }
