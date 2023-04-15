@@ -15,29 +15,53 @@ public class Linia {
 
     private Stacja koncowa;
 
-    private List<Stacja> trasaPrzejazdu;
+    private List<Polaczenie> trasaPrzejazdu;
 
     private double dlugoscTrasy;
 
     public Linia(Stacja poczatkowa, Stacja koncowa) {
         this.nazwaLini = poczatkowa + " - " + koncowa;
-//        trasaPrzejazdu =
+        this.trasaPrzejazdu = wyznaczanieTrasy(poczatkowa, koncowa);
 
-//        dlugoscTrasy =
 
     }
 
-    public List<Stacja> wyznaczanieTrasy(Stacja A, Stacja B) {
-        Map<Stacja, List<Polaczenie>> mapaStacji = new HashMap<>();
+    public List<Polaczenie> wyznaczanieTrasy(Stacja a, Stacja b) {
+        List<Polaczenie> trasa = new ArrayList<Polaczenie>();
 
-        if (A.getPolaczenia() == null || B.getPolaczenia() == null) {
-//            throw brakPolaczen;
+        if (a.getPolaczenia() == null || b.getPolaczenia() == null) {
+            //zamienic na wyjatek
+            return trasa;
+        } else {
+            Polaczenie p = a.getPolaczenia().get(0);
+            trasa.add(p);
+            Stacja c = p.getStacjaB();
+            while (!c.equals(b)) {
+                List<Polaczenie> listaPolaczenC = c.getPolaczenia();
+                Polaczenie nastepne = null;
+
+                for (Polaczenie p2 : listaPolaczenC) {
+                    if (p2.getStacjaB().equals(b)) {
+                        nastepne = p2;
+                        break;
+                    }
+                }
+
+                if (nastepne == null) {
+                    nastepne = listaPolaczenC.get(0);
+                    while (nastepne.getStacjaB().equals(c) || trasa.contains(nastepne)) {
+                        nastepne = listaPolaczenC.get((listaPolaczenC.indexOf(nastepne) + 1) % listaPolaczenC.size());
+                    }
+                }
+                trasa.add(nastepne);
+                c = nastepne.getStacjaB();
+            }
         }
-        return null;
+        return trasa;
 
     }
 
-    public void tworzeniePolaczenMiedzyStacjami() {
+    public static void tworzeniePolaczenMiedzyStacjami() {
         ListaStacji listaStacji = ListaStacji.getInstance();
         List<Stacja> listaStajci2 = listaStacji.getStacjaList();
         int rozmiarTablicy = listaStacji.getStacjaList().size();
@@ -70,5 +94,56 @@ public class Linia {
 
         }
 
+    }
+
+    public String getNazwaLini() {
+        return nazwaLini;
+    }
+
+    public void setNazwaLini(String nazwaLini) {
+        this.nazwaLini = nazwaLini;
+    }
+
+    public Stacja getPoczatkowa() {
+        return poczatkowa;
+    }
+
+    public void setPoczatkowa(Stacja poczatkowa) {
+        this.poczatkowa = poczatkowa;
+    }
+
+    public Stacja getKoncowa() {
+        return koncowa;
+    }
+
+    public void setKoncowa(Stacja koncowa) {
+        this.koncowa = koncowa;
+    }
+
+    public List<Polaczenie> getTrasaPrzejazdu() {
+        return trasaPrzejazdu;
+    }
+
+    public void setTrasaPrzejazdu(List<Polaczenie> trasaPrzejazdu) {
+        this.trasaPrzejazdu = trasaPrzejazdu;
+    }
+
+    public double getDlugoscTrasy() {
+        return dlugoscTrasy;
+    }
+
+    public void setDlugoscTrasy(double dlugoscTrasy) {
+        this.dlugoscTrasy = dlugoscTrasy;
+    }
+
+    @Override
+    public String toString() {
+        return "Linia{" +
+                "nazwaLini='" + nazwaLini + '\'' +
+                ", poczatkowa=" + poczatkowa +
+                ", koncowa=" + koncowa +
+                ", trasaPrzejazdu=" + trasaPrzejazdu +
+                ", dlugoscTrasy=" + dlugoscTrasy +
+                '}';
     }
 }

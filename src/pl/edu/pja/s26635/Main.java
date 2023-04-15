@@ -10,6 +10,9 @@ import pl.edu.pja.s26635.pociag.wagony.ListaWagonow;
 import pl.edu.pja.s26635.pociag.wagony.cywilne.WagonPas;
 import pl.edu.pja.s26635.pociag.wagony.cywilne.WagonPocz;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
 
@@ -17,7 +20,7 @@ public class Main {
 
         ListaStacji listaStacji = ListaStacji.getInstance();
         //wczytanie stacji z pliku
-        listaStacji.listaStacjizPliku("test.txt");
+        listaStacji.listaStacjizPliku("100miast.txt");
 
         WagonPas wagonPas = new WagonPas("pp", 100, 150, 200, 250, true, 30);
         WagonPas wagonPas2 = new WagonPas("pp2", 100, 2000, 200, 250, true, 30);
@@ -34,19 +37,32 @@ public class Main {
         listaWagonow.pokazWagony();
 
         Lokomotywa lokomotywa = new Lokomotywa("Maks", new Stacja("wawa melanz"), new Stacja("dupa"), new Stacja("ddd"), 900, 6, 2, 100);
+
         ListaLokomotyw listaLokomotyw = ListaLokomotyw.getInstance();
         listaLokomotyw.dodajLokomotywe(lokomotywa);
 
 //        Witaj.start();
 
-        Linia linia = new Linia(null, null);
-        linia.tworzeniePolaczenMiedzyStacjami();
+
+        Linia.tworzeniePolaczenMiedzyStacjami();
 
         for (Stacja s : listaStacji.getStacjaList()) {
             System.out.println(s.toString());
             for (Polaczenie p : s.getPolaczenia()) {
                 System.out.println(p);
             }
+        }
+        System.out.println("/////////////////////////////////////////////////////////////////////////////////");
+        Stacja a = listaStacji.getStacjaList().get(1);
+        Stacja b = listaStacji.getStacjaList().get(4);
+
+
+        Linia linia1 = new Linia(a, b);
+
+        List<Polaczenie> trasa = linia1.getTrasaPrzejazdu();
+
+        for (Polaczenie p : trasa) {
+            System.out.println(p.getNazwaPolaczenia());
         }
     }
 

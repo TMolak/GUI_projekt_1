@@ -4,3 +4,7 @@ Kluczbork
 Warszawa
 Opole
 Siedlce
+Krakow
+Gdansk
+Wroclaw
+Sopot
