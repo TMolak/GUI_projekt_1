@@ -1,5 +1,7 @@
 package pl.edu.pja.s26635.pociag;
 
+import pl.edu.pja.s26635.pociag.lokomotywy.Lokomotywa;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +30,13 @@ public class ListaSkladow {
         skladList.remove(sklad);
     }
 
-
+    public void pokazSklady(){
+        int i = 1;
+        for (Sklad s : skladList){
+            System.out.println(i + ". " + s.toString());
+            i++;
+        }
+    }
     public static void setInstace(ListaSkladow instace) {
         ListaSkladow.instace = instace;
     }

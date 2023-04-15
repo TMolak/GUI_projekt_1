@@ -33,4 +33,12 @@ public class Sklad {
     public void setWagony(List<Wagon> wagony) {
         this.wagony = wagony;
     }
+
+    @Override
+    public String toString() {
+        return "Sklad " +
+                "lokomotywa " + lokomotywa.getNazwa() +
+                ", wagony=" + wagony+
+                '}';
+    }
 }

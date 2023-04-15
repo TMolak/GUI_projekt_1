@@ -26,22 +26,22 @@ public class Linia {
 
     }
 
-    public List<Polaczenie> wyznaczanieTrasy(Stacja a, Stacja b) {
+    public List<Polaczenie> wyznaczanieTrasy(Stacja start, Stacja koniec) {
         List<Polaczenie> trasa = new ArrayList<Polaczenie>();
 
-        if (a.getPolaczenia() == null || b.getPolaczenia() == null) {
+        if (start.getPolaczenia() == null || koniec.getPolaczenia() == null) {
             //zamienic na wyjatek
             return trasa;
         } else {
-            Polaczenie p = a.getPolaczenia().get(0);
+            Polaczenie p = start.getPolaczenia().get(0);
             trasa.add(p);
             Stacja c = p.getStacjaB();
-            while (!c.equals(b)) {
+            while (!c.equals(koniec)) {
                 List<Polaczenie> listaPolaczenC = c.getPolaczenia();
                 Polaczenie nastepne = null;
 
                 for (Polaczenie p2 : listaPolaczenC) {
-                    if (p2.getStacjaB().equals(b)) {
+                    if (p2.getStacjaB().equals(koniec)) {
                         nastepne = p2;
                         break;
                     }

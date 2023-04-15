@@ -1,4 +1,4 @@
-package pl.edu.pja.s26635.menu.elementy;
+package pl.edu.pja.s26635.menu.elementy.tworzenie;
 
 import pl.edu.pja.s26635.menu.start.Witaj;
 
@@ -27,8 +27,10 @@ public class Tworzenie {
                 TworzenieSkladu.tworzenieSkladu();
                 break;
             case "4":
+                TworzenieStacji.tworzenieStacji();
                 break;
             case "5":
+                TworzeniePolaczen.tworzeniePolaczen();
                 break;
             case "0":
                 Witaj.start();

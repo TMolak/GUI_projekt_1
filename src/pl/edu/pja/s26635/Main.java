@@ -10,7 +10,7 @@ import pl.edu.pja.s26635.pociag.wagony.ListaWagonow;
 import pl.edu.pja.s26635.pociag.wagony.cywilne.WagonPas;
 import pl.edu.pja.s26635.pociag.wagony.cywilne.WagonPocz;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 public class Main {
@@ -20,7 +20,7 @@ public class Main {
 
         ListaStacji listaStacji = ListaStacji.getInstance();
         //wczytanie stacji z pliku
-        listaStacji.listaStacjizPliku("100miast.txt");
+        listaStacji.listaStacjizPliku("test.txt");
 
         WagonPas wagonPas = new WagonPas("pp", 100, 150, 200, 250, true, 30);
         WagonPas wagonPas2 = new WagonPas("pp2", 100, 2000, 200, 250, true, 30);
@@ -35,6 +35,7 @@ public class Main {
         listaWagonow.dodajWagon(wagonPocz);
         listaWagonow.dodajWagon(wagonPocz2);
         listaWagonow.pokazWagony();
+
 
         Lokomotywa lokomotywa = new Lokomotywa("Maks", new Stacja("wawa melanz"), new Stacja("dupa"), new Stacja("ddd"), 900, 6, 2, 100);
 

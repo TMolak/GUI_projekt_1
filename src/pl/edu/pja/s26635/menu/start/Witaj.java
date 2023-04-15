@@ -1,8 +1,8 @@
 package pl.edu.pja.s26635.menu.start;
 
-import pl.edu.pja.s26635.menu.Usuwanie;
+import pl.edu.pja.s26635.menu.elementy.usuwanie.Usuwanie;
 import pl.edu.pja.s26635.menu.edycja.Edycja;
-import pl.edu.pja.s26635.menu.elementy.Tworzenie;
+import pl.edu.pja.s26635.menu.elementy.tworzenie.Tworzenie;
 import pl.edu.pja.s26635.menu.odczyt.Pokaz;
 
 import java.util.Scanner;

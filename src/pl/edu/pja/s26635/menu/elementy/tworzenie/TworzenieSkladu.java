@@ -1,4 +1,4 @@
-package pl.edu.pja.s26635.menu.elementy;
+package pl.edu.pja.s26635.menu.elementy.tworzenie;
 
 import pl.edu.pja.s26635.pociag.ListaSkladow;
 import pl.edu.pja.s26635.pociag.Sklad;

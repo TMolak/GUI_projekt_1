@@ -1,15 +1,14 @@
-package pl.edu.pja.s26635.menu.elementy;
+package pl.edu.pja.s26635.menu.elementy.tworzenie;
 
 import pl.edu.pja.s26635.menu.start.Witaj;
 import pl.edu.pja.s26635.pociag.wagony.ListaWagonow;
 import pl.edu.pja.s26635.pociag.wagony.Wagon;
-import pl.edu.pja.s26635.pociag.wagony.cywilne.WagonBagPocz;
 import pl.edu.pja.s26635.pociag.wagony.cywilne.WagonPas;
 import pl.edu.pja.s26635.pociag.wagony.cywilne.WagonPocz;
 
 import java.util.Scanner;
 
-import static pl.edu.pja.s26635.menu.elementy.TworzenieWagonuPodstawa.tworzenieWagonuPodstawa;
+import static pl.edu.pja.s26635.menu.elementy.tworzenie.TworzenieWagonuPodstawa.tworzenieWagonuPodstawa;
 
 public class TworzenieWagonow {
     public static void tworzenieWagonow(){
