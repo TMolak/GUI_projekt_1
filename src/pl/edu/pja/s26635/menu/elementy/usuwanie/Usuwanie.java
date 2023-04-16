@@ -55,6 +55,7 @@ public class Usuwanie {
         Scanner scanner = new Scanner(System.in);
         int decyzja = scanner.nextInt();
         ListaWagonow.getInstance().usunWagon(ListaWagonow.getInstance().getWagonList().get(decyzja));
+        Witaj.start();
     }
     public static void usunSklad(){
         System.out.println("Wybierz sklad do usuniecia: ");

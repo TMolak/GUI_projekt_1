@@ -83,7 +83,7 @@ public class Linia {
                 }
             }
         }
-
+//odleglosc
         for (int i = 0; i < tablica.length; i++) {
             for (int j = 0; j < tablica.length; j++) {
                 if (tablica[i][j] == 1) {

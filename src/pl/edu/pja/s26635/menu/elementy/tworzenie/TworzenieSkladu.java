@@ -51,6 +51,7 @@ public class TworzenieSkladu {
         Sklad sklad = new Sklad(lokomotywa, listaWybranychWagonow);
         ListaSkladow listaSkladow = ListaSkladow.getInstance();
         listaSkladow.dodajSklad(sklad);
+        Tworzenie.tworzenieElementow();
     }
 
     public static int masaWagonow(List<Wagon> listaWagonow) {

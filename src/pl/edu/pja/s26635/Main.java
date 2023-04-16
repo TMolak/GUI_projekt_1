@@ -4,6 +4,7 @@ import pl.edu.pja.s26635.infrastuktura.Linia;
 import pl.edu.pja.s26635.infrastuktura.Polaczenie;
 import pl.edu.pja.s26635.infrastuktura.Stacja;
 import pl.edu.pja.s26635.infrastuktura.listy.ListaStacji;
+import pl.edu.pja.s26635.menu.start.Witaj;
 import pl.edu.pja.s26635.pociag.lokomotywy.ListaLokomotyw;
 import pl.edu.pja.s26635.pociag.lokomotywy.Lokomotywa;
 import pl.edu.pja.s26635.pociag.wagony.ListaWagonow;
@@ -20,7 +21,7 @@ public class Main {
 
         ListaStacji listaStacji = ListaStacji.getInstance();
         //wczytanie stacji z pliku
-        listaStacji.listaStacjizPliku("test.txt");
+        listaStacji.listaStacjizPliku("100miast.txt");
 
         WagonPas wagonPas = new WagonPas("pp", 100, 150, 200, 250, true, 30);
         WagonPas wagonPas2 = new WagonPas("pp2", 100, 2000, 200, 250, true, 30);
@@ -42,8 +43,7 @@ public class Main {
         ListaLokomotyw listaLokomotyw = ListaLokomotyw.getInstance();
         listaLokomotyw.dodajLokomotywe(lokomotywa);
 
-//        Witaj.start();
-
+       Witaj.start();
 
         Linia.tworzeniePolaczenMiedzyStacjami();
 
@@ -53,10 +53,10 @@ public class Main {
                 System.out.println(p);
             }
         }
+
         System.out.println("/////////////////////////////////////////////////////////////////////////////////");
         Stacja a = listaStacji.getStacjaList().get(1);
         Stacja b = listaStacji.getStacjaList().get(4);
-
 
         Linia linia1 = new Linia(a, b);
 
@@ -65,6 +65,7 @@ public class Main {
         for (Polaczenie p : trasa) {
             System.out.println(p.getNazwaPolaczenia());
         }
+
     }
 
 }
