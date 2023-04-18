@@ -1,5 +1,6 @@
 package pl.edu.pja.s26635.pociag.lokomotywy;
 
+import pl.edu.pja.s26635.infrastuktura.Linia;
 import pl.edu.pja.s26635.infrastuktura.Stacja;
 import pl.edu.pja.s26635.zapis.Zapis;
 
@@ -7,7 +8,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
 
-public class Lokomotywa implements Serializable {
+public class Lokomotywa {
 
     private static int idNum = 0;
     private double predkosc;
@@ -21,6 +22,7 @@ public class Lokomotywa implements Serializable {
 
     private int maxLiczWagonowEl;
 
+
     public Lokomotywa(String nazwa, Stacja stacjaMacierzysta, Stacja stacjaZrodlowa, Stacja stacjaDocelowa, int maxUciag, int maxLiczWagonow, int maxLiczWagonowEl, double predkosc) {
         this.nazwa = nazwa;
         this.stacjaMacierzysta = stacjaMacierzysta;
@@ -30,6 +32,7 @@ public class Lokomotywa implements Serializable {
         this.maxLiczWagonow = maxLiczWagonow;
         this.maxLiczWagonowEl = maxLiczWagonowEl;
         this.predkosc = predkosc;
+
         ++idNum;
     }
 
@@ -46,12 +49,6 @@ public class Lokomotywa implements Serializable {
 
     }
 
-    public void jazda(){
-        //co sekunde z wykorzystaniem watku
-        this.predkosc = predkosc * 0.3;
-
-
-    }
 
     public static void zapiszLokomotywe(Lokomotywa lokomotywa) throws IOException {
         Zapis.zapiszDoPliku("lokomotywy.txt", lokomotywa.toString());

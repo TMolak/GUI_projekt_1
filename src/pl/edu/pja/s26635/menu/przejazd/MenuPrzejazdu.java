@@ -2,6 +2,7 @@ package pl.edu.pja.s26635.menu.przejazd;
 
 import pl.edu.pja.s26635.infrastuktura.Linia;
 import pl.edu.pja.s26635.infrastuktura.Polaczenie;
+import pl.edu.pja.s26635.infrastuktura.listy.ListaLinii;
 import pl.edu.pja.s26635.infrastuktura.przejazdy.Przejazd;
 import pl.edu.pja.s26635.menu.start.Witaj;
 import pl.edu.pja.s26635.pociag.ListaSkladow;
@@ -43,6 +44,7 @@ public class MenuPrzejazdu {
 
         Linia.tworzeniePolaczenMiedzyStacjami();
         Linia linia = new Linia(wybranySkladDoPrzejazdu.getLokomotywa().getStacjaZrodlowa(), wybranySkladDoPrzejazdu.getLokomotywa().getStacjaDocelowa());
+        ListaLinii.getInstance().dodajLinie(linia);
         List<Polaczenie> trasa = linia.getTrasaPrzejazdu();
 
         System.out.println("Wybrana trasa przejazdu wyglada tak: ");

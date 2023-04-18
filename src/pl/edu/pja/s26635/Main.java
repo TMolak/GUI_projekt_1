@@ -47,38 +47,51 @@ public class Main {
 
 //       Witaj.start();
 
-//        Linia.tworzeniePolaczenMiedzyStacjami();
-//
-//        for (Stacja s : listaStacji.getStacjaList()) {
-//            System.out.println(s.toString());
-//            for (Polaczenie p : s.getPolaczenia()) {
-//                System.out.println(p);
-//            }
-//        }
-//
-//        System.out.println("/////////////////////////////////////////////////////////////////////////////////");
-//        Stacja a = listaStacji.getStacjaList().get(1);
-//        Stacja b = listaStacji.getStacjaList().get(4);
-//
-//        Linia linia1 = new Linia(a, b);
-//
-//        List<Polaczenie> trasa = linia1.getTrasaPrzejazdu();
-//        for (Polaczenie p : trasa) {
-//            System.out.println(p.getNazwaPolaczenia());
-//        }
-//        System.out.println(linia1.getDlugoscTrasy());
+        Linia.tworzeniePolaczenMiedzyStacjami();
+
+        for (Stacja s : listaStacji.getStacjaList()) {
+            System.out.println(s.toString());
+            for (Polaczenie p : s.getPolaczenia()) {
+                System.out.println(p);
+            }
+        }
+
+        System.out.println("/////////////////////////////////////////////////////////////////////////////////");
+        Stacja a = listaStacji.getStacjaList().get(1);
+        Stacja b = listaStacji.getStacjaList().get(4);
+
+        Linia linia1 = new Linia(a, b);
+
+        List<Polaczenie> trasa = linia1.getTrasaPrzejazdu();
+        for (Polaczenie p : trasa) {
+            System.out.println(p.getNazwaPolaczenia());
+        }
+        System.out.println(linia1.getDlugoscTrasy());
+       Lokomotywa lokomotywa1 = new Lokomotywa("Maks", ListaStacji.getInstance().getStacjaList().get(2), ListaStacji.getInstance().getStacjaList().get(3), ListaStacji.getInstance().getStacjaList().get(6), 900, 6, 2, 100);
+        Lokomotywa lokomotywa2 = new Lokomotywa("Kama", ListaStacji.getInstance().getStacjaList().get(4), ListaStacji.getInstance().getStacjaList().get(5), ListaStacji.getInstance().getStacjaList().get(7), 900, 6, 2, 140);
 
 
-        uruchomieniePrzejazdow();
+        uruchomieniePrzejazdow(trasa);
     }
-    public static void uruchomieniePrzejazdow(){
+    public static void uruchomieniePrzejazdow(List<Polaczenie> trasa){
         System.out.println("Uruchomiono przejazdy");
         List<Thread> listaWatkow = new ArrayList<>();
+        Lokomotywa lokomotywa1 = new Lokomotywa("Maks", ListaStacji.getInstance().getStacjaList().get(2), ListaStacji.getInstance().getStacjaList().get(3), ListaStacji.getInstance().getStacjaList().get(6), 900, 6, 2, 100);
+        Lokomotywa lokomotywa2 = new Lokomotywa("Kama", ListaStacji.getInstance().getStacjaList().get(4), ListaStacji.getInstance().getStacjaList().get(5), ListaStacji.getInstance().getStacjaList().get(7), 900, 6, 2, 140);
 
         Przejazd przejazd = new Przejazd();
-        Thread thread = new Thread(przejazd);
+
+        Thread thread = new Thread(() -> przejazd.zmianaPredkosci(lokomotywa1));
+        Thread thread1 = new Thread(() -> przejazd.aktualnaPozycja(trasa, lokomotywa1));
+        Thread thread2 = new Thread(() -> przejazd.zmianaPredkosci(lokomotywa2));
+
 
         thread.start();
+        System.out.println("/////////////////");
+        thread1.start();
+        System.out.println("..................");
+        thread2.start();
 
     }
+
 }
