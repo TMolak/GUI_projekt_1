@@ -17,7 +17,6 @@ public class Sklad {
         this.wagony = wagony;
     }
 
-
     public Lokomotywa getLokomotywa() {
         return lokomotywa;
     }
@@ -38,7 +37,7 @@ public class Sklad {
     public String toString() {
         return "Sklad " +
                 "lokomotywa " + lokomotywa.getNazwa() +
-                ", wagony=" + wagony+
+                ", wagony=" + wagony +
                 '}';
     }
 }

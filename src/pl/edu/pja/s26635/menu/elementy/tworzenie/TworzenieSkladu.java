@@ -6,6 +6,7 @@ import pl.edu.pja.s26635.pociag.lokomotywy.ListaLokomotyw;
 import pl.edu.pja.s26635.pociag.lokomotywy.Lokomotywa;
 import pl.edu.pja.s26635.pociag.wagony.ListaWagonow;
 import pl.edu.pja.s26635.pociag.wagony.Wagon;
+import pl.edu.pja.s26635.wyjatki.NieprawidlowyNumer;
 import pl.edu.pja.s26635.wyjatki.ZaDuzaWagaWagonow;
 import pl.edu.pja.s26635.wyjatki.ZaDuzoWagonow;
 
@@ -51,6 +52,7 @@ public class TworzenieSkladu {
         Sklad sklad = new Sklad(lokomotywa, listaWybranychWagonow);
         ListaSkladow listaSkladow = ListaSkladow.getInstance();
         listaSkladow.dodajSklad(sklad);
+
         Tworzenie.tworzenieElementow();
     }
 
@@ -61,4 +63,18 @@ public class TworzenieSkladu {
         }
         return masa;
     }
+
+//    public int walidacjaWyboru(){
+//        Scanner scanner = new Scanner(System.in);
+//        int decyzja;
+//
+//        do {
+//            while (!scanner.hasNextInt()) {
+//                String input = scanner.nextLine();
+//                System.out.println(input + " jest bledna dana");
+//            }
+//            decyzja = scanner.nextInt();
+//        }while(decyzja);
+//        return decyzja;
+//    }
 }

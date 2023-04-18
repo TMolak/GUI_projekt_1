@@ -21,7 +21,7 @@ public class Main {
 
         ListaStacji listaStacji = ListaStacji.getInstance();
         //wczytanie stacji z pliku
-        listaStacji.listaStacjizPliku("100miast.txt");
+        listaStacji.listaStacjizPliku("test.txt");
 
         WagonPas wagonPas = new WagonPas("pp", 100, 150, 200, 250, true, 30);
         WagonPas wagonPas2 = new WagonPas("pp2", 100, 2000, 200, 250, true, 30);
@@ -43,7 +43,7 @@ public class Main {
         ListaLokomotyw listaLokomotyw = ListaLokomotyw.getInstance();
         listaLokomotyw.dodajLokomotywe(lokomotywa);
 
-       Witaj.start();
+       //Witaj.start();
 
         Linia.tworzeniePolaczenMiedzyStacjami();
 

@@ -1,5 +1,6 @@
 package pl.edu.pja.s26635.menu.elementy.usuwanie;
 
+import pl.edu.pja.s26635.infrastuktura.listy.ListaStacji;
 import pl.edu.pja.s26635.menu.elementy.tworzenie.*;
 import pl.edu.pja.s26635.menu.start.Witaj;
 import pl.edu.pja.s26635.pociag.ListaSkladow;
@@ -30,10 +31,10 @@ public class Usuwanie {
                 usunSklad();
                 break;
             case "4":
-                TworzenieStacji.tworzenieStacji();
+                usunStacje();
                 break;
             case "5":
-                TworzeniePolaczen.tworzeniePolaczen();
+//                usunPolaczenie();
                 break;
             case "0":
                 Witaj.start();
@@ -52,14 +53,23 @@ public class Usuwanie {
     public static void  usunWagon(){
         System.out.println("Wybierz wagon do usuniecia: ");
         ListaWagonow.getInstance().pokazWagony();
-        Scanner scanner = new Scanner(System.in);
-        int decyzja = scanner.nextInt();
+        int decyzja = new Scanner(System.in).nextInt();
         ListaWagonow.getInstance().usunWagon(ListaWagonow.getInstance().getWagonList().get(decyzja));
         Witaj.start();
     }
     public static void usunSklad(){
         System.out.println("Wybierz sklad do usuniecia: ");
         ListaSkladow.getInstance().pokazSklady();
+        int decyzja = new Scanner(System.in).nextInt();
+        ListaSkladow.getInstance().usunSklad(ListaSkladow.getInstance().getSkladList().get(decyzja));
+        Witaj.start();
+    }
+    public static void usunStacje(){
+        System.out.println("Wybierz stacje do usuniecia: ");
+        ListaStacji.getInstance().pokazStacje();
+        int decyzja = new Scanner(System.in).nextInt();
+        ListaStacji.getInstance().usunStacje(ListaStacji.getInstance().getStacjaList().get(decyzja));
+        Witaj.start();
     }
 
 }
