@@ -17,6 +17,11 @@ public class Sklad {
         this.wagony = wagony;
     }
 
+    public void jazda(){
+        lokomotywa.setPredkosc(lokomotywa.getPredkosc()*(1.01));
+
+    }
+
     public Lokomotywa getLokomotywa() {
         return lokomotywa;
     }

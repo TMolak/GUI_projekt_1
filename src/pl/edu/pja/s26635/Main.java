@@ -4,6 +4,7 @@ import pl.edu.pja.s26635.infrastuktura.Linia;
 import pl.edu.pja.s26635.infrastuktura.Polaczenie;
 import pl.edu.pja.s26635.infrastuktura.Stacja;
 import pl.edu.pja.s26635.infrastuktura.listy.ListaStacji;
+import pl.edu.pja.s26635.infrastuktura.przejazdy.Przejazd;
 import pl.edu.pja.s26635.menu.start.Witaj;
 import pl.edu.pja.s26635.pociag.lokomotywy.ListaLokomotyw;
 import pl.edu.pja.s26635.pociag.lokomotywy.Lokomotywa;
@@ -12,6 +13,7 @@ import pl.edu.pja.s26635.pociag.wagony.cywilne.WagonPas;
 import pl.edu.pja.s26635.pociag.wagony.cywilne.WagonPocz;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
@@ -43,7 +45,7 @@ public class Main {
         ListaLokomotyw listaLokomotyw = ListaLokomotyw.getInstance();
         listaLokomotyw.dodajLokomotywe(lokomotywa);
 
-       Witaj.start();
+//       Witaj.start();
 
 //        Linia.tworzeniePolaczenMiedzyStacjami();
 //
@@ -65,6 +67,18 @@ public class Main {
 //            System.out.println(p.getNazwaPolaczenia());
 //        }
 //        System.out.println(linia1.getDlugoscTrasy());
+
+
+        uruchomieniePrzejazdow();
+    }
+    public static void uruchomieniePrzejazdow(){
+        System.out.println("Uruchomiono przejazdy");
+        List<Thread> listaWatkow = new ArrayList<>();
+
+        Przejazd przejazd = new Przejazd();
+        Thread thread = new Thread(przejazd);
+
+        thread.start();
 
     }
 }
