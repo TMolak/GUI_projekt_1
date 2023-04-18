@@ -22,8 +22,6 @@ public class Linia {
     public Linia(Stacja poczatkowa, Stacja koncowa) {
         this.nazwaLini = poczatkowa + " - " + koncowa;
         this.trasaPrzejazdu = wyznaczanieTrasy(poczatkowa, koncowa);
-
-
     }
 
     public List<Polaczenie> wyznaczanieTrasy(Stacja start, Stacja koniec) {
@@ -55,7 +53,12 @@ public class Linia {
                 }
                 trasa.add(nastepne);
                 c = nastepne.getStacjaB();
+
             }
+        }
+
+        for (int i = 0; i < trasa.size(); i++) {
+            this.dlugoscTrasy += trasa.get(i).getOdleglosc();
         }
         return trasa;
 

@@ -43,29 +43,28 @@ public class Main {
         ListaLokomotyw listaLokomotyw = ListaLokomotyw.getInstance();
         listaLokomotyw.dodajLokomotywe(lokomotywa);
 
-       //Witaj.start();
+       Witaj.start();
 
-        Linia.tworzeniePolaczenMiedzyStacjami();
-
-        for (Stacja s : listaStacji.getStacjaList()) {
-            System.out.println(s.toString());
-            for (Polaczenie p : s.getPolaczenia()) {
-                System.out.println(p);
-            }
-        }
-
-        System.out.println("/////////////////////////////////////////////////////////////////////////////////");
-        Stacja a = listaStacji.getStacjaList().get(1);
-        Stacja b = listaStacji.getStacjaList().get(4);
-
-        Linia linia1 = new Linia(a, b);
-
-        List<Polaczenie> trasa = linia1.getTrasaPrzejazdu();
-
-        for (Polaczenie p : trasa) {
-            System.out.println(p.getNazwaPolaczenia());
-        }
+//        Linia.tworzeniePolaczenMiedzyStacjami();
+//
+//        for (Stacja s : listaStacji.getStacjaList()) {
+//            System.out.println(s.toString());
+//            for (Polaczenie p : s.getPolaczenia()) {
+//                System.out.println(p);
+//            }
+//        }
+//
+//        System.out.println("/////////////////////////////////////////////////////////////////////////////////");
+//        Stacja a = listaStacji.getStacjaList().get(1);
+//        Stacja b = listaStacji.getStacjaList().get(4);
+//
+//        Linia linia1 = new Linia(a, b);
+//
+//        List<Polaczenie> trasa = linia1.getTrasaPrzejazdu();
+//        for (Polaczenie p : trasa) {
+//            System.out.println(p.getNazwaPolaczenia());
+//        }
+//        System.out.println(linia1.getDlugoscTrasy());
 
     }
-
 }
