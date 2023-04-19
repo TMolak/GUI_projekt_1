@@ -6,9 +6,12 @@ import pl.edu.pja.s26635.infrastuktura.Stacja;
 import pl.edu.pja.s26635.infrastuktura.listy.ListaStacji;
 import pl.edu.pja.s26635.infrastuktura.przejazdy.Przejazd;
 import pl.edu.pja.s26635.menu.start.Witaj;
+import pl.edu.pja.s26635.pociag.ListaSkladow;
+import pl.edu.pja.s26635.pociag.Sklad;
 import pl.edu.pja.s26635.pociag.lokomotywy.ListaLokomotyw;
 import pl.edu.pja.s26635.pociag.lokomotywy.Lokomotywa;
 import pl.edu.pja.s26635.pociag.wagony.ListaWagonow;
+import pl.edu.pja.s26635.pociag.wagony.Wagon;
 import pl.edu.pja.s26635.pociag.wagony.cywilne.WagonPas;
 import pl.edu.pja.s26635.pociag.wagony.cywilne.WagonPocz;
 
@@ -23,7 +26,7 @@ public class Main {
 
         ListaStacji listaStacji = ListaStacji.getInstance();
         //wczytanie stacji z pliku
-        listaStacji.listaStacjizPliku("test.txt");
+        listaStacji.listaStacjizPliku("100miast.txt");
 
         WagonPas wagonPas = new WagonPas("pp", 100, 150, 200, 250, true, 30);
         WagonPas wagonPas2 = new WagonPas("pp2", 100, 2000, 200, 250, true, 30);
@@ -56,35 +59,30 @@ public class Main {
 
             }
         }
-
-
-        System.out.println("/////////////////////////////////////////////////////////////////////////////////");
-        Stacja a = listaStacji.getStacjaList().get(1);
-        Stacja b = listaStacji.getStacjaList().get(4);
-
-        Linia linia1 = new Linia(a, b);
-
-        List<Polaczenie> trasa = linia1.getTrasaPrzejazdu();
-        for (Polaczenie p : trasa) {
-            System.out.println(p.getNazwaPolaczenia());
-        }
-        System.out.println(linia1.getDlugoscTrasy());
+        List<Wagon> testoweWagony = new ArrayList<>();
+        testoweWagony.add(wagonPas2);
+        testoweWagony.add(wagonPas3);
        Lokomotywa lokomotywa1 = new Lokomotywa("Maks", ListaStacji.getInstance().getStacjaList().get(2), ListaStacji.getInstance().getStacjaList().get(3), ListaStacji.getInstance().getStacjaList().get(6), 900, 6, 2, 100);
         Lokomotywa lokomotywa2 = new Lokomotywa("Kama", ListaStacji.getInstance().getStacjaList().get(4), ListaStacji.getInstance().getStacjaList().get(5), ListaStacji.getInstance().getStacjaList().get(7), 900, 6, 2, 140);
+        Sklad ska = new Sklad(lokomotywa1, testoweWagony);
+        System.out.println("///////////////////////////////");
+        for (Polaczenie p : ska.getTrasaPrzejazdu()) {
+            System.out.println(p.toString());
+        }
+        System.out.println("///////////////////////////////");
 
-
-//        uruchomieniePrzejazdow(trasa);
+        uruchomieniePrzejazdow(ska);
     }
-    public static void uruchomieniePrzejazdow(List<Polaczenie> trasa){
+    public static void uruchomieniePrzejazdow(Sklad sklad){
         System.out.println("Uruchomiono przejazdy");
-        List<Thread> listaWatkow = new ArrayList<>();
-        Lokomotywa lokomotywa1 = new Lokomotywa("Maks", ListaStacji.getInstance().getStacjaList().get(2), ListaStacji.getInstance().getStacjaList().get(3), ListaStacji.getInstance().getStacjaList().get(6), 900, 6, 2, 100);
-        Lokomotywa lokomotywa2 = new Lokomotywa("Kama", ListaStacji.getInstance().getStacjaList().get(4), ListaStacji.getInstance().getStacjaList().get(5), ListaStacji.getInstance().getStacjaList().get(7), 900, 6, 2, 140);
-
+//        List<Thread> listaWatkow = new ArrayList<>();
+//        Lokomotywa lokomotywa1 = new Lokomotywa("Maks", ListaStacji.getInstance().getStacjaList().get(2), ListaStacji.getInstance().getStacjaList().get(3), ListaStacji.getInstance().getStacjaList().get(6), 900, 6, 2, 100);
+//        Lokomotywa lokomotywa2 = new Lokomotywa("Kama", ListaStacji.getInstance().getStacjaList().get(4), ListaStacji.getInstance().getStacjaList().get(5), ListaStacji.getInstance().getStacjaList().get(7), 900, 6, 2, 140);
+//
         Przejazd przejazd = new Przejazd();
 
-        Thread thread = new Thread(() -> przejazd.zmianaPredkosci(lokomotywa1));
-        Thread thread1 = new Thread(() -> przejazd.aktualnaPozycja(trasa, lokomotywa1));
+        Thread thread = new Thread(() -> przejazd.zmianaPredkosci(sklad));
+        Thread thread1 = new Thread(() -> przejazd.aktualnaPozycja(sklad));
 //        Thread thread2 = new Thread(() -> przejazd.zmianaPredkosci(lokomotywa2));
 
         thread.start();

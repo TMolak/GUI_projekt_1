@@ -17,14 +17,17 @@ public class Linia {
 
     private List<Polaczenie> trasaPrzejazdu;
 
-    private double dlugoscTrasy;
+    private static double dlugoscTrasy;
 
     public Linia(Stacja poczatkowa, Stacja koncowa) {
         this.nazwaLini = poczatkowa + " - " + koncowa;
         this.trasaPrzejazdu = wyznaczanieTrasy(poczatkowa, koncowa);
     }
 
-    public List<Polaczenie> wyznaczanieTrasy(Stacja start, Stacja koniec) {
+    public Linia() {
+    }
+
+    public static List<Polaczenie> wyznaczanieTrasy(Stacja start, Stacja koniec) {
         List<Polaczenie> trasa = new ArrayList<Polaczenie>();
 
         if (start.getPolaczenia() == null || koniec.getPolaczenia() == null) {
@@ -58,7 +61,7 @@ public class Linia {
         }
 
         for (int i = 0; i < trasa.size(); i++) {
-            this.dlugoscTrasy += trasa.get(i).getOdleglosc();
+            dlugoscTrasy += trasa.get(i).getOdleglosc();
         }
         return trasa;
 
@@ -73,7 +76,7 @@ public class Linia {
 
         for (int i = 0; i < rozmiarTablicy; i++) {
             for (int j = i + 1; j < rozmiarTablicy; j++) {
-                odleglosci[i][j] = Math.random() * 1000;
+                odleglosci[i][j] = Math.random() * 100;
                 odleglosci[j][i] = odleglosci[i][j];
             }
         }
@@ -83,7 +86,7 @@ public class Linia {
                     tablica[i][j] = 0;
                 } else {
                     int procent = (int) (Math.random() * 101);
-                    if (procent < 25) {
+                    if (procent < 10) {
                         tablica[i][j] = 1;
                         tablica[j][i] = 1;
                     } else {
