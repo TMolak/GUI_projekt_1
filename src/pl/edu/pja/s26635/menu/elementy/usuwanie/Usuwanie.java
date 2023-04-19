@@ -39,6 +39,10 @@ public class Usuwanie {
             case "0":
                 Witaj.start();
                 break;
+            default:
+                System.out.println("Nieprawidlowa wartosc");
+                Usuwanie.usuwanieElementu();
+                break;
         }
     }
 

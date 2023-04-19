@@ -35,6 +35,10 @@ public class Tworzenie {
             case "0":
                 Witaj.start();
                 break;
+            default:
+                System.out.println("Nieprawidlowa wartosc");
+                Tworzenie.tworzenieElementow();
+                break;
         }
     }
 }

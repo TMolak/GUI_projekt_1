@@ -1,5 +1,6 @@
 package pl.edu.pja.s26635.menu.odczyt;
 
+import pl.edu.pja.s26635.menu.elementy.tworzenie.Tworzenie;
 import pl.edu.pja.s26635.pociag.lokomotywy.ListaLokomotyw;
 import pl.edu.pja.s26635.pociag.wagony.ListaWagonow;
 
@@ -27,6 +28,16 @@ public class Pokaz {
                 for (int i = 0; i < listaWagonow.getWagonList().size(); i++) {
                     System.out.println(listaWagonow.getWagonList().get(i));
                 }
+            case "3":
+
+            case "4":
+
+            case "5":
+
+            default:
+                System.out.println("Nieprawidlowa wartosc");
+                Pokaz.pokazElementy();
+                break;
         }
     }
 }

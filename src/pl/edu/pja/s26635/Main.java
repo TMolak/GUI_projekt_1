@@ -45,16 +45,18 @@ public class Main {
         ListaLokomotyw listaLokomotyw = ListaLokomotyw.getInstance();
         listaLokomotyw.dodajLokomotywe(lokomotywa);
 
-//       Witaj.start();
+//        Witaj.start();
 
-        Linia.tworzeniePolaczenMiedzyStacjami();
+          Linia.tworzeniePolaczenMiedzyStacjami();
 
         for (Stacja s : listaStacji.getStacjaList()) {
             System.out.println(s.toString());
             for (Polaczenie p : s.getPolaczenia()) {
                 System.out.println(p);
+
             }
         }
+
 
         System.out.println("/////////////////////////////////////////////////////////////////////////////////");
         Stacja a = listaStacji.getStacjaList().get(1);
@@ -71,7 +73,7 @@ public class Main {
         Lokomotywa lokomotywa2 = new Lokomotywa("Kama", ListaStacji.getInstance().getStacjaList().get(4), ListaStacji.getInstance().getStacjaList().get(5), ListaStacji.getInstance().getStacjaList().get(7), 900, 6, 2, 140);
 
 
-        uruchomieniePrzejazdow(trasa);
+//        uruchomieniePrzejazdow(trasa);
     }
     public static void uruchomieniePrzejazdow(List<Polaczenie> trasa){
         System.out.println("Uruchomiono przejazdy");
@@ -83,15 +85,13 @@ public class Main {
 
         Thread thread = new Thread(() -> przejazd.zmianaPredkosci(lokomotywa1));
         Thread thread1 = new Thread(() -> przejazd.aktualnaPozycja(trasa, lokomotywa1));
-        Thread thread2 = new Thread(() -> przejazd.zmianaPredkosci(lokomotywa2));
-
+//        Thread thread2 = new Thread(() -> przejazd.zmianaPredkosci(lokomotywa2));
 
         thread.start();
-        System.out.println("/////////////////");
         thread1.start();
-        System.out.println("..................");
-        thread2.start();
+
+//        thread2.start();
+
 
     }
-
 }

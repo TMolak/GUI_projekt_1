@@ -6,7 +6,7 @@ import pl.edu.pja.s26635.pociag.lokomotywy.ListaLokomotyw;
 import pl.edu.pja.s26635.pociag.lokomotywy.Lokomotywa;
 import pl.edu.pja.s26635.pociag.wagony.ListaWagonow;
 import pl.edu.pja.s26635.pociag.wagony.Wagon;
-import pl.edu.pja.s26635.wyjatki.NieprawidlowyNumer;
+
 import pl.edu.pja.s26635.wyjatki.ZaDuzaWagaWagonow;
 import pl.edu.pja.s26635.wyjatki.ZaDuzoWagonow;
 

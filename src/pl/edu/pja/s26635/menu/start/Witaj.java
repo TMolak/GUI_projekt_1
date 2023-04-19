@@ -5,6 +5,7 @@ import pl.edu.pja.s26635.menu.edycja.Edycja;
 import pl.edu.pja.s26635.menu.elementy.tworzenie.Tworzenie;
 import pl.edu.pja.s26635.menu.odczyt.Pokaz;
 import pl.edu.pja.s26635.menu.przejazd.MenuPrzejazdu;
+import pl.edu.pja.s26635.wyjatki.NieprawidlowaWartosc;
 
 import java.util.Scanner;
 
@@ -22,6 +23,7 @@ public class Witaj {
         System.out.println("0. Wyjście z programu");
         Scanner scanner = new Scanner(System.in);
         String decyzja = scanner.nextLine();
+
         switch (decyzja) {
             case "1":
                 Tworzenie.tworzenieElementow();
@@ -37,10 +39,14 @@ public class Witaj {
                 break;
             case "5":
                 MenuPrzejazdu.menuPrzejazdu();
+                break;
             case "0":
                 System.exit(0);
                 break;
+            default:
+                System.out.println("Nieprawidlowa wartosc!!!");
+                Witaj.start();
+                break;
         }
     }
-
 }
