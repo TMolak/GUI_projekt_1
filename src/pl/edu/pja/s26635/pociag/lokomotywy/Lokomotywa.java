@@ -33,7 +33,7 @@ public class Lokomotywa {
         this.maxLiczWagonowEl = maxLiczWagonowEl;
         this.predkosc = predkosc;
 
-        ++idNum;
+        idNum++;
     }
 
     public Lokomotywa(String nazwa, Stacja stacjaMacierzysta, Stacja stacjaZrodlowa, Stacja stacjaDocelowa, int maxUciag, int maxLiczWagonow, int maxLiczWagonowEl) {
@@ -45,14 +45,10 @@ public class Lokomotywa {
         this.maxLiczWagonow = maxLiczWagonow;
         this.maxLiczWagonowEl = maxLiczWagonowEl;
 
-        ++idNum;
+        idNum++;
 
     }
 
-
-    public static void zapiszLokomotywe(Lokomotywa lokomotywa) throws IOException {
-        Zapis.zapiszDoPliku("lokomotywy.txt", lokomotywa.toString());
-    }
 
     public static int getIdNum() {
         return idNum;

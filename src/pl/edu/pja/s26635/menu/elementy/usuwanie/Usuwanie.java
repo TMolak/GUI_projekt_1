@@ -23,15 +23,23 @@ public class Usuwanie {
         switch (decyzja) {
             case "1":
                 usunLokomotywe();
+                Witaj.start();
+
                 break;
             case "2":
                 usunWagon();
+                Witaj.start();
+
                 break;
             case "3":
                 usunSklad();
+                Witaj.start();
+
                 break;
             case "4":
                 usunStacje();
+                Witaj.start();
+
                 break;
             case "5":
 //                usunPolaczenie();

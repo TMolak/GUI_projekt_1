@@ -25,15 +25,12 @@ public class Linia {
         this.trasaPrzejazdu = wyznaczanieTrasy(poczatkowa, koncowa);
     }
 
-    public Linia() {
-    }
 
     public static List<Polaczenie> wyznaczanieTrasy(Stacja start, Stacja koniec) {
         List<Polaczenie> trasa = new ArrayList<Polaczenie>();
 
         if (start.getPolaczenia() == null || koniec.getPolaczenia() == null) {
-            //zamienic na wyjatek
-            return trasa;
+            System.err.println("Polaczenie nie istnieje!");
         } else {
             Polaczenie p = start.getPolaczenia().get(0);
             trasa.add(p);

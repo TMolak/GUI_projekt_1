@@ -26,7 +26,7 @@ public class Przejazd {
                     throw new RailroadHazard();
                 }
 
-                System.out.println(lokomotywa.getPredkosc() + lokomotywa.getNazwa());
+                System.out.println(lokomotywa.getPredkosc() + " " +  lokomotywa.getNazwa());
 
                 double random = Math.random();
                 if (random > 0.5) {
@@ -45,7 +45,7 @@ public class Przejazd {
         List<Polaczenie> trasa = sklad.getTrasaPrzejazdu();
         Stacja stacjaStartowa;
         Stacja stacjaDocelowa;
-
+        String nazwaSkladu = sklad.getLokomotywa().getNazwa();
         if (!kierunek){
             stacjaStartowa = sklad.getLokomotywa().getStacjaZrodlowa();
             stacjaDocelowa = sklad.getLokomotywa().getStacjaDocelowa();
@@ -59,14 +59,14 @@ public class Przejazd {
             Polaczenie aktualne = trasa.get(i);
             double odleglosc = aktualne.getOdleglosc();
             double predkosc = lokomotywa.getPredkosc();
-            System.out.println("Jestem na " + trasa.get(i).getNazwaPolaczenia());
+            System.out.println(nazwaSkladu + trasa.get(i).getNazwaPolaczenia());
 
             if (aktualne.getStacjaB().equals(stacjaDocelowa)) {
                 try {
-                    System.out.println("Jestes na Stacji docelowej: " + aktualne.getStacjaB());
+                    System.out.println(nazwaSkladu + " jest na Stacji docelowej: " + aktualne.getStacjaB());
                     Thread.sleep(30000);
                     sklad.setTrasaPrzejazdu(Linia.wyznaczanieTrasy(stacjaDocelowa, stacjaStartowa));
-                    System.out.println("Nowa trasa przejazdu:");
+                    System.out.println("Nowa trasa przejazdu dla lokomotywy "+ nazwaSkladu +":");
                     sklad.pokazTrase();
                     kierunek = !kierunek;
                     aktualnaPozycja(sklad, kierunek);
@@ -76,7 +76,7 @@ public class Przejazd {
             } else {
                 try {
                     Thread.sleep(2000);
-                    System.out.println("Dotarles na stacje " + aktualne.getStacjaB());
+                    System.out.println(nazwaSkladu+ " dotarla na stacje " + aktualne.getStacjaB());
                 } catch (InterruptedException e) {
                     e.getMessage();
                 }
@@ -89,11 +89,11 @@ public class Przejazd {
                 }
                 odleglosc -= predkosc;
                 if (odleglosc < 0) {
-                    System.out.println("Odlegosc: 0");
-                    System.out.println("Predkosc: " + predkosc);
+                    System.out.println(nazwaSkladu + " Odlegosc: 0");
+                    System.out.println(nazwaSkladu + "Predkosc: " + predkosc);
                 } else {
-                    System.out.println("Odleglosc: " + odleglosc);
-                    System.out.println("Predkosc: " + predkosc);
+                    System.out.println(nazwaSkladu + "Odleglosc: " + odleglosc);
+                    System.out.println(nazwaSkladu + "Predkosc: " + predkosc);
                 }
 
             }

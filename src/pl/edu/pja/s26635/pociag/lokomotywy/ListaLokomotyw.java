@@ -31,7 +31,7 @@ public class ListaLokomotyw {
     public void pokazLokomotywy(){
         int i = 1;
         for (Lokomotywa l : lokomotywaList){
-            System.out.println(i + ". " + l.getNazwa());
+            System.out.println(i + ". " + l.toString());
             i++;
         }
     }
