@@ -19,18 +19,23 @@ public class Tworzenie {
         switch (decyzja) {
             case "1":
                 TworzenieLokomotyw.tworzenieLokomotyw();
+                Witaj.start();
                 break;
             case "2":
                 TworzenieWagonow.tworzenieWagonow();
+                Witaj.start();
                 break;
             case "3":
                 TworzenieSkladu.tworzenieSkladu();
+                Witaj.start();
                 break;
             case "4":
                 TworzenieStacji.tworzenieStacji();
+                Witaj.start();
                 break;
             case "5":
                 TworzeniePolaczen.tworzeniePolaczen();
+                Witaj.start();
                 break;
             case "0":
                 Witaj.start();

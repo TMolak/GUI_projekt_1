@@ -1,24 +1,16 @@
 package pl.edu.pja.s26635.menu.przejazd;
 
-import pl.edu.pja.s26635.infrastuktura.Linia;
-import pl.edu.pja.s26635.infrastuktura.Polaczenie;
-import pl.edu.pja.s26635.infrastuktura.listy.ListaLinii;
-import pl.edu.pja.s26635.infrastuktura.listy.ListaStacji;
-import pl.edu.pja.s26635.infrastuktura.przejazdy.Przejazd;
-import pl.edu.pja.s26635.infrastuktura.przejazdy.Przejazdy;
-import pl.edu.pja.s26635.menu.elementy.tworzenie.Tworzenie;
-import pl.edu.pja.s26635.menu.start.Witaj;
-import pl.edu.pja.s26635.pociag.ListaSkladow;
-import pl.edu.pja.s26635.pociag.Sklad;
-import pl.edu.pja.s26635.pociag.lokomotywy.Lokomotywa;
 
-import java.util.ArrayList;
-import java.util.List;
+import pl.edu.pja.s26635.infrastuktura.przejazdy.Przejazdy;
+
+import pl.edu.pja.s26635.menu.start.Witaj;
+
 import java.util.Scanner;
 
 public class MenuPrzejazdu {
     public static void menuPrzejazdu() {
-        System.out.println();
+
+        System.out.println("Witaj w menu przejazdu aby rozpoczac wcisnij 1");
         Scanner scanner = new Scanner(System.in);
         String decyzja = scanner.nextLine();
         switch (decyzja) {
@@ -36,27 +28,13 @@ public class MenuPrzejazdu {
     }
 
 
-public static void przejazdy(){
-    Scanner scanner = new Scanner(System.in);
+    public static void przejazdy() {
 
-    System.out.println("Aby rozpoczac przejazdy wpisz 1 aby wrocic 0");
-    String dec = scanner.nextLine();
+        Przejazdy przejazdy = new Przejazdy();
+        przejazdy.run();
 
-    switch (dec){
-        case "1":
-            Przejazdy przejazdy = new Przejazdy();
-            przejazdy.run();
 
-        case "0":
-            menuPrzejazdu();
-        default:
-            System.out.println("Nieprawidlowa wartosc");
-            MenuPrzejazdu.przejazdy();
-            break;
     }
-
-}
-
 
 
 }
