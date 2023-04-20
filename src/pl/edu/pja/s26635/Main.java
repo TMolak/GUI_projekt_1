@@ -71,11 +71,8 @@ public class Main {
             System.out.println(p.toString());
         }
         System.out.println("///////////////////////////////");
-        List<Polaczenie> list = ListaPolaczen.getInstance().getPolaczenieList();
-        for (Polaczenie p : list) {
-            System.out.println(p.toString());
-        }
-//        uruchomieniePrzejazdow(ska);
+
+        uruchomieniePrzejazdow(ska);
     }
     public static void uruchomieniePrzejazdow(Sklad sklad){
         System.out.println("Uruchomiono przejazdy");
@@ -86,7 +83,7 @@ public class Main {
         Przejazd przejazd = new Przejazd();
 
         Thread thread = new Thread(() -> przejazd.zmianaPredkosci(sklad));
-        Thread thread1 = new Thread(() -> przejazd.aktualnaPozycja(sklad));
+        Thread thread1 = new Thread(() -> przejazd.aktualnaPozycja(sklad, false));
 //        Thread thread2 = new Thread(() -> przejazd.zmianaPredkosci(lokomotywa2));
 
         thread.start();

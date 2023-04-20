@@ -7,8 +7,6 @@ import pl.edu.pja.s26635.pociag.Sklad;
 import pl.edu.pja.s26635.pociag.lokomotywy.Lokomotywa;
 import pl.edu.pja.s26635.wyjatki.RailroadHazard;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Przejazd {
@@ -42,11 +40,19 @@ public class Przejazd {
         }
     }
 
-    public void aktualnaPozycja(Sklad sklad) {
+    public void aktualnaPozycja(Sklad sklad, boolean kierunek) {
         Lokomotywa lokomotywa = sklad.getLokomotywa();
         List<Polaczenie> trasa = sklad.getTrasaPrzejazdu();
-        Stacja stacjaStartowa = sklad.getLokomotywa().getStacjaZrodlowa();
-        Stacja stacjaDocelowa = sklad.getLokomotywa().getStacjaDocelowa();
+        Stacja stacjaStartowa;
+        Stacja stacjaDocelowa;
+
+        if (!kierunek){
+            stacjaStartowa = sklad.getLokomotywa().getStacjaZrodlowa();
+            stacjaDocelowa = sklad.getLokomotywa().getStacjaDocelowa();
+        }else{
+            stacjaStartowa = sklad.getLokomotywa().getStacjaDocelowa();
+            stacjaDocelowa = sklad.getLokomotywa().getStacjaZrodlowa();
+        }
 
 
         for (int i = 0; i < trasa.size(); i++) {
@@ -58,12 +64,12 @@ public class Przejazd {
             if (aktualne.getStacjaB().equals(stacjaDocelowa)) {
                 try {
                     System.out.println("Jestes na Stacji docelowej: " + aktualne.getStacjaB());
-                    Thread.sleep(3000);
+                    Thread.sleep(30000);
                     sklad.setTrasaPrzejazdu(Linia.wyznaczanieTrasy(stacjaDocelowa, stacjaStartowa));
                     System.out.println("Nowa trasa przejazdu:");
                     sklad.pokazTrase();
-
-                    aktualnaPozycja(sklad);
+                    kierunek = !kierunek;
+                    aktualnaPozycja(sklad, kierunek);
                 } catch (InterruptedException e) {
                     e.getMessage();
                 }
@@ -77,7 +83,7 @@ public class Przejazd {
             }
             while (odleglosc > 0) {
                 try {
-                    Thread.sleep(2000);
+                    Thread.sleep(6000);
                 } catch (InterruptedException e) {
                     e.getMessage();
                 }
