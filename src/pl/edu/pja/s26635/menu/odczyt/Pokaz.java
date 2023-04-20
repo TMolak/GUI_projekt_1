@@ -1,6 +1,9 @@
 package pl.edu.pja.s26635.menu.odczyt;
 
+import pl.edu.pja.s26635.infrastuktura.listy.ListaPolaczen;
+import pl.edu.pja.s26635.infrastuktura.listy.ListaStacji;
 import pl.edu.pja.s26635.menu.elementy.tworzenie.Tworzenie;
+import pl.edu.pja.s26635.pociag.ListaSkladow;
 import pl.edu.pja.s26635.pociag.lokomotywy.ListaLokomotyw;
 import pl.edu.pja.s26635.pociag.wagony.ListaWagonow;
 
@@ -19,21 +22,15 @@ public class Pokaz {
         switch (decyzja){
 
             case "1":
-                ListaLokomotyw listaLokomotyw = ListaLokomotyw.getInstance();
-                for (int i = 0; i < listaLokomotyw.getLokomotywaList().size(); i++) {
-                    System.out.println(listaLokomotyw.getLokomotywaList().get(i));
-                }
+                ListaLokomotyw.getInstance().pokazLokomotywy();
             case "2":
-                ListaWagonow listaWagonow = ListaWagonow.getInstance();
-                for (int i = 0; i < listaWagonow.getWagonList().size(); i++) {
-                    System.out.println(listaWagonow.getWagonList().get(i));
-                }
+                ListaWagonow.getInstance().pokazWagony();
             case "3":
-
+                ListaSkladow.getInstance().pokazSklady();
             case "4":
-
+                ListaStacji.getInstance().pokazStacje();
             case "5":
-
+                ListaPolaczen.getInstance().pokazPolaczenia();
             default:
                 System.out.println("Nieprawidlowa wartosc");
                 Pokaz.pokazElementy();

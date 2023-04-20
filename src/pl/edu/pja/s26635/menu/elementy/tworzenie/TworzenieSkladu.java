@@ -42,8 +42,12 @@ public class TworzenieSkladu {
                 }
             } catch (ZaDuzaWagaWagonow wyjatek1) {
                 wyjatek1.getMessage();
+                System.out.println("Musisz zaczac od poczatku");
+                tworzenieSkladu();
             } catch (ZaDuzoWagonow wyjatek2) {
                 wyjatek2.getMessage();
+                System.out.println("Musisz zaczac od poczatku");
+                tworzenieSkladu();
             }
             System.out.println("Chcesz wybrac wiecej wagonow?");
             decyzja = scanner.nextBoolean();

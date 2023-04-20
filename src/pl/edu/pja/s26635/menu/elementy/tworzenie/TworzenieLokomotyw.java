@@ -1,16 +1,11 @@
 package pl.edu.pja.s26635.menu.elementy.tworzenie;
 
-import pl.edu.pja.s26635.infrastuktura.Linia;
-import pl.edu.pja.s26635.infrastuktura.Polaczenie;
 import pl.edu.pja.s26635.infrastuktura.Stacja;
 import pl.edu.pja.s26635.infrastuktura.listy.ListaStacji;
 import pl.edu.pja.s26635.menu.start.Witaj;
 import pl.edu.pja.s26635.pociag.lokomotywy.ListaLokomotyw;
 import pl.edu.pja.s26635.pociag.lokomotywy.Lokomotywa;
-import pl.edu.pja.s26635.wyjatki.NieprawidlowaWartosc;
 
-import java.util.InputMismatchException;
-import java.util.List;
 import java.util.Scanner;
 
 public class TworzenieLokomotyw {
@@ -41,7 +36,7 @@ public class TworzenieLokomotyw {
             int predkosc = scanner.nextInt();
             Lokomotywa lokomotywa = new Lokomotywa(nazwa, stacjaMac, stacjaPocz, stacjaDoc, maxUciag, maxLiczWagonow, maxLiczWagonowEl, predkosc);
             listaLokomotyw.dodajLokomotywe(lokomotywa);
-            System.out.println("Czy chcesz zobaczyc trase tej lokomotywy?");
+
             Witaj.start();
         }catch (Exception e){
             System.out.println("Nieprawidlowa wartosc, zacznij od poczatku");

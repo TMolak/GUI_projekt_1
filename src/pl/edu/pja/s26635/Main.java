@@ -3,6 +3,7 @@ package pl.edu.pja.s26635;
 import pl.edu.pja.s26635.infrastuktura.Linia;
 import pl.edu.pja.s26635.infrastuktura.Polaczenie;
 import pl.edu.pja.s26635.infrastuktura.Stacja;
+import pl.edu.pja.s26635.infrastuktura.listy.ListaPolaczen;
 import pl.edu.pja.s26635.infrastuktura.listy.ListaStacji;
 import pl.edu.pja.s26635.infrastuktura.przejazdy.Przejazd;
 import pl.edu.pja.s26635.menu.start.Witaj;
@@ -70,8 +71,11 @@ public class Main {
             System.out.println(p.toString());
         }
         System.out.println("///////////////////////////////");
-
-        uruchomieniePrzejazdow(ska);
+        List<Polaczenie> list = ListaPolaczen.getInstance().getPolaczenieList();
+        for (Polaczenie p : list) {
+            System.out.println(p.toString());
+        }
+//        uruchomieniePrzejazdow(ska);
     }
     public static void uruchomieniePrzejazdow(Sklad sklad){
         System.out.println("Uruchomiono przejazdy");

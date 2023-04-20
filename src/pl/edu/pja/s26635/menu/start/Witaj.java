@@ -5,7 +5,6 @@ import pl.edu.pja.s26635.menu.edycja.Edycja;
 import pl.edu.pja.s26635.menu.elementy.tworzenie.Tworzenie;
 import pl.edu.pja.s26635.menu.odczyt.Pokaz;
 import pl.edu.pja.s26635.menu.przejazd.MenuPrzejazdu;
-import pl.edu.pja.s26635.wyjatki.NieprawidlowaWartosc;
 
 import java.util.Scanner;
 

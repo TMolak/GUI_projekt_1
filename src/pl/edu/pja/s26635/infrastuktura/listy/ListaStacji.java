@@ -16,7 +16,7 @@ public class ListaStacji {
     private List<Stacja> stacjaList;
 
     private ListaStacji(){
-        stacjaList = new ArrayList<>();
+        stacjaList = new ArrayList<Stacja>();
     }
 
     public static ListaStacji getInstance(){

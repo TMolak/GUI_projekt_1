@@ -1,5 +1,6 @@
 package pl.edu.pja.s26635.infrastuktura;
 
+import pl.edu.pja.s26635.infrastuktura.listy.ListaPolaczen;
 import pl.edu.pja.s26635.infrastuktura.listy.ListaStacji;
 
 import java.util.ArrayList;
@@ -70,6 +71,7 @@ public class Linia {
     public static void tworzeniePolaczenMiedzyStacjami() {
         ListaStacji listaStacji = ListaStacji.getInstance();
         List<Stacja> listaStacji2 = listaStacji.getStacjaList();
+        ListaPolaczen listaPolaczen = ListaPolaczen.getInstance();
         int rozmiarTablicy = listaStacji.getStacjaList().size();
         int[][] tablica = new int[rozmiarTablicy][rozmiarTablicy];
         double[][] odleglosci = new double[rozmiarTablicy][rozmiarTablicy];
@@ -99,7 +101,9 @@ public class Linia {
         for (int i = 0; i < tablica.length; i++) {
             for (int j = 0; j < tablica.length; j++) {
                 if (tablica[i][j] == 1) {
-                    listaStacji2.get(i).dodajPolaczenie(new Polaczenie(listaStacji2.get(i), listaStacji2.get(j), odleglosci[i][j]));
+                    Polaczenie polaczenie = new Polaczenie(listaStacji2.get(i), listaStacji2.get(j), odleglosci[i][j]);
+                    listaStacji2.get(i).dodajPolaczenie(polaczenie);
+                    listaPolaczen.dodajPolaczenie(polaczenie);
                 }
             }
 
