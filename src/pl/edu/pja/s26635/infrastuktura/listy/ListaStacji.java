@@ -35,7 +35,7 @@ public class ListaStacji {
     }
 
     public void listaStacjizPliku(String nazwaPliku) {
-        File file = new File("C:\\Users\\tomek\\IdeaProjects\\GUI_projekt_1\\src\\plikiTxt\\", nazwaPliku);
+        File file = new File("..\\GUI_projekt_1\\src\\plikiTxt\\", nazwaPliku);
 
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
